@@ -29,6 +29,8 @@ public class SnackDetailActivity extends AppCompatActivity {
 
 
 
+
+
     }
 
 }

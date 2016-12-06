@@ -29,7 +29,7 @@ public class SnackEntry {
         snackType = snackTypeIn;
 
         Calendar c = Calendar.getInstance();
-        int seconds = c.get(Calendar.SECOND);
+        long seconds = c.get(Calendar.SECOND);
 
         timestamp = new Date(seconds);
     }
@@ -114,4 +114,6 @@ public class SnackEntry {
     public int getSalt() {
         return salt;
     }
+
+    public Date getTime() {return timestamp;}
 }
