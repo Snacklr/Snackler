@@ -12,12 +12,6 @@
         android:layout_weight="1"
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/scanItemButton"
-        android:text="Scan Now!"/>
-
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -34,10 +28,18 @@
             android:elevation="6dp"
             android:layout_alignParentBottom="true"
             android:background="@color/white"
-            app:tabTextColor="@color/colorPrimary"
-            app:tabSelectedTextColor="@color/colorPrimary"
+            app:tabTextColor="@color/iconColor"
+            app:tabSelectedTextColor="@color/iconColor"
 
             />
+
+        <!--
+         <Button
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:id="@+id/scanItemButton"
+              android:text="Scan Now!"/>
+              -->
 
     </android.support.design.widget.AppBarLayout>
 </LinearLayout>

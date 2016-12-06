@@ -12,23 +12,28 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import com.example.snackler.snackler.ToolBarSetup;
+import com.github.mikephil.charting.charts.PieChart;
 import android.view.View;
 import android.widget.Button;
-
+import com.github.mikephil.charting.charts.PieChart;
+import com.github.mikephil.charting.components.Legend;
+import com.github.mikephil.charting.data.Entry;
+import com.github.mikephil.charting.data.PieData;
+import com.github.mikephil.charting.data.PieDataSet;
+import com.github.mikephil.charting.data.PieEntry;
+import com.github.mikephil.charting.highlight.Highlight;
+import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
 import java.util.ArrayList;
 import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity {
 
+    public static PieChart pieChart;
     private Toolbar toolbar;
-    private TabLayout tabLayout;
+    public TabLayout tabLayout;
     private ViewPager viewPager;
-    private int[] tabIcons = {
-            R.drawable.ic_insert_chart_black_24dp,
-            R.drawable.ic_photo_camera_black_24dp,
-            R.drawable.ic_watch_later_black_24dp
-    };
 
 
 
@@ -37,44 +42,42 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        
-
         viewPager = (ViewPager) findViewById(R.id.viewpager);
-        setupViewPager(viewPager);
+        setupViewPager();
 
         tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
-        setupTabIcons();
+        ToolBarSetup.setupTabIcons(tabLayout);
 
-        Button scanButton = (Button) findViewById(R.id.scanItemButton);
 
-        scanButton.setOnClickListener(new View.OnClickListener() {
+       // Button scanButton = (Button) findViewById(R.id.scanItemButton);
+       /* scanButton.setOnClickListener(new View.OnClickListener() {
+
             @Override
-            public void onClick(View view) {
+             public void onClick(View view) {
 
-                //We ned to decide how to do scanning, but for now I am just passing a "snack search term" to the downloader
-                Intent searchSnackIntent = new Intent(MainActivity.this, NutritionDownloaderActivity.class);
-                searchSnackIntent.putExtra(NutritionDownloaderActivity.SNACK_TO_SEARCH, "Grape");
-                startActivity(searchSnackIntent);
-            }
+              //We ned to decide how to do scanning, but for now I am just passing a "snack search term" to the downloader
+             Intent searchSnackIntent = new Intent(MainActivity.this, NutritionDownloaderActivity.class);
+             searchSnackIntent.putExtra(NutritionDownloaderActivity.SNACK_TO_SEARCH, "Grape");
+             startActivity(searchSnackIntent);
+                               }
 
-        });
+        });*/
+
 
     }
 
-    private void setupTabIcons() {
-        tabLayout.getTabAt(0).setIcon(tabIcons[0]);
-        tabLayout.getTabAt(1).setIcon(tabIcons[1]);
-        tabLayout.getTabAt(2).setIcon(tabIcons[2]);
-    }
 
-    private void setupViewPager(ViewPager viewPager) {
+
+    public void setupViewPager() {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFrag(new OneFragment(), "Progress");
+
+        adapter.addFrag(new SnackStats(), "Progress");
         adapter.addFrag(new TwoFragment(), "Home");
         adapter.addFrag(new ThreeFragment(), "History");
         viewPager.setAdapter(adapter);
     }
+
 
     class ViewPagerAdapter extends FragmentPagerAdapter {
         private final List<Fragment> mFragmentList = new ArrayList<>();
@@ -104,4 +107,9 @@ public class MainActivity extends AppCompatActivity {
             return mFragmentTitleList.get(position);
         }
     }
+
+
+
+
+
 }
