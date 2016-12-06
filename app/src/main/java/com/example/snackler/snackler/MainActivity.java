@@ -12,6 +12,8 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
+import android.widget.Button;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,6 +30,8 @@ public class MainActivity extends AppCompatActivity {
             R.drawable.ic_watch_later_black_24dp
     };
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +45,21 @@ public class MainActivity extends AppCompatActivity {
         tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
         setupTabIcons();
+
+        Button scanButton = (Button) findViewById(R.id.scanItemButton);
+
+        scanButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                //We ned to decide how to do scanning, but for now I am just passing a "snack search term" to the downloader
+                Intent searchSnackIntent = new Intent(MainActivity.this, NutritionDownloaderActivity.class);
+                searchSnackIntent.putExtra(NutritionDownloaderActivity.SNACK_TO_SEARCH, "Grape");
+                startActivity(searchSnackIntent);
+            }
+
+        });
+
     }
 
     private void setupTabIcons() {

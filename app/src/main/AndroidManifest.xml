@@ -16,7 +16,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".SnackDetailActivity" />
-        <activity android:name=".NutritionInfoDownloadTask"></activity>
+        <activity android:name=".NutritionDownloaderActivity"></activity>
     </application>
 
 </manifest>

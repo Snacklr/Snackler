@@ -17,7 +17,7 @@ public class SnackEntry {
     private double servingSize;
     private Date timestamp;
 
-    //Macros more can be added later
+    //More macros can be added later
     private int calories;
     private int protein;
     private int fat;
