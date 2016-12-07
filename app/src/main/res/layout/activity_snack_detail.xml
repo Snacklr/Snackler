@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_snack_detail"
     android:layout_width="match_parent"
@@ -8,140 +8,215 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:orientation="vertical"
-    tools:context="com.example.snackler.snackler.SnackDetailActivity">
+    tools:context="com.example.snackler.snackler.SnackDetailFragment">
 
     <TextView
         android:text=""
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textSize="30dp"
+        android:layout_marginBottom="25dp"
         android:id="@+id/snackTitle" />
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:background="#000000"
+        android:padding="1dp"
+        android:layout_below="@+id/snackTitle"
         android:id="@+id/snackImage" />
 
     <TextView
         android:text="Snack Information"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/snackTitle"
+        android:layout_marginLeft="20dp"
+        android:layout_toRightOf="@+id/snackImage"
+        android:textSize="15dp"
         android:id="@+id/snackInfoTitle" />
 
     <TextView
-        android:text="Snack Quantity:"
+        android:text="Snack Quantity:  "
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/snackInfoTitle"
+        android:layout_alignLeft="@+id/snackInfoTitle"
+        android:layout_marginTop="7dp"
         android:id="@+id/snackQuantityTitle" />
 
     <TextView
         android:text=""
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/snackInfoTitle"
+        android:layout_toRightOf="@+id/snackQuantityTitle"
+        android:layout_marginTop="7dp"
         android:id="@+id/snackQuantity" />
 
     <TextView
-        android:text="Serving Size:"
+        android:text="Serving Size:   "
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/snackQuantityTitle"
+        android:layout_alignLeft="@+id/snackInfoTitle"
+        android:layout_marginTop="5dp"
         android:id="@+id/snackServingSizeTitle" />
 
     <TextView
         android:text=""
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/snackQuantityTitle"
+        android:layout_toRightOf="@+id/snackServingSizeTitle"
+        android:layout_marginTop="5dp"
         android:id="@+id/snackServingSize" />
 
     <TextView
         android:text="Time Consumed:"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/snackServingSizeTitle"
+        android:layout_alignLeft="@+id/snackInfoTitle"
+        android:layout_marginTop="5dp"
         android:id="@+id/snackTimeTitle" />
 
     <TextView
         android:text=""
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/snackTimeTitle"
+        android:layout_alignLeft="@+id/snackInfoTitle"
+        android:layout_marginTop="5dp"
         android:id="@+id/snackTime" />
+
 
     <TextView
         android:text="Nutrition Info:"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/snackImage"
+        android:layout_marginTop="7dp"
+        android:textSize="15dp"
         android:id="@+id/nutritionInfoTitle" />
 
     <TextView
         android:text="Calories: "
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/nutritionInfoTitle"
+        android:layout_marginTop="7dp"
         android:id="@+id/caloriesTitle" />
 
     <TextView
         android:text=""
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/nutritionInfoTitle"
+        android:layout_toRightOf="@+id/caloriesTitle"
+        android:layout_marginTop="7dp"
         android:id="@+id/calories" />
 
     <TextView
         android:text="Carbohydrates: "
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/carbsTittle" />
+        android:layout_below="@+id/caloriesTitle"
+        android:layout_marginTop="5dp"
+        android:id="@+id/carbsTitle" />
 
     <TextView
         android:text=""
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/caloriesTitle"
+        android:layout_toRightOf="@+id/carbsTitle"
+        android:layout_marginTop="5dp"
         android:id="@+id/carbs" />
 
     <TextView
         android:text="Fat: "
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/carbsTitle"
+        android:layout_marginTop="5dp"
         android:id="@+id/fatTitle" />
 
     <TextView
         android:text=""
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/carbsTitle"
+        android:layout_toRightOf="@+id/fatTitle"
+        android:layout_marginTop="5dp"
         android:id="@+id/fat" />
 
     <TextView
         android:text="Protein: "
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/fatTitle"
+        android:layout_marginTop="5dp"
         android:id="@+id/proteinTitle" />
 
     <TextView
         android:text=""
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/fatTitle"
+        android:layout_toRightOf="@+id/proteinTitle"
+        android:layout_marginTop="5dp"
         android:id="@+id/protein" />
 
     <TextView
         android:text="Sugar: "
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/sugarTittle" />
+        android:layout_below="@+id/proteinTitle"
+        android:id="@+id/sugarTitle" />
 
     <TextView
         android:text=""
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/proteinTitle"
+        android:layout_toRightOf="@+id/sugarTitle"
+        android:layout_marginTop="5dp"
         android:id="@+id/sugar" />
 
     <TextView
         android:text="Sodium: "
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/sugarTitle"
+        android:layout_marginTop="5dp"
         android:id="@+id/sodiumTitle" />
 
     <TextView
         android:text=""
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/sugarTitle"
+        android:layout_toRightOf="@id/sodiumTitle"
+        android:layout_marginTop="5dp"
         android:id="@+id/sodium" />
 
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Rescan"
+        android:layout_alignParentTop="true"
+        android:layout_toLeftOf="@+id/acceptButton"
+        android:id="@+id/rescanButton"/>
 
-</LinearLayout>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Accept"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:id="@+id/acceptButton"/>
+
+
+</RelativeLayout>

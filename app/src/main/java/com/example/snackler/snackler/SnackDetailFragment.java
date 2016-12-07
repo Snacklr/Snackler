@@ -20,8 +20,6 @@ public class SnackDetailFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_snack_detail);
 
         View rootView = inflater.inflate(R.layout.activity_snack_detail, container, false);
 
@@ -53,16 +51,16 @@ public class SnackDetailFragment extends Fragment {
 
         snackTitleView.setText(fakeEntryForDemo.getSnackType());
         //imageView.setImageBitmap(fakeEntryForDemo.getImage());
-        quantityView.setText(String.valueOf(fakeEntryForDemo.getQuantity()));
+        quantityView.setText(String.valueOf(fakeEntryForDemo.getQuantity())+" g");
         servingSizeView.setText(String.valueOf(fakeEntryForDemo.getServingSize()));
-        snackTimeView.setText(fakeEntryForDemo.getTimestamp().toString());
+        snackTimeView.setText(fakeEntryForDemo.getTimestamp().toString().substring(0,16));
 
-        calorieView.setText(String.valueOf(fakeEntryForDemo.getCalories()));
-        carbsView.setText(String.valueOf(fakeEntryForDemo.getCarbohydrates()));
-        fatView.setText(String.valueOf(fakeEntryForDemo.getFat()));
-        proteinView.setText(String.valueOf(fakeEntryForDemo.getProtein()));
-        sugarView.setText(String.valueOf(fakeEntryForDemo.getSugar()));
-        sodiumView.setText(String.valueOf(fakeEntryForDemo.getSalt()));
+        calorieView.setText(String.valueOf(fakeEntryForDemo.getCalories())+" cal");
+        carbsView.setText(String.valueOf(fakeEntryForDemo.getCarbohydrates())+" g");
+        fatView.setText(String.valueOf(fakeEntryForDemo.getFat())+" g");
+        proteinView.setText(String.valueOf(fakeEntryForDemo.getProtein())+" g");
+        sugarView.setText(String.valueOf(fakeEntryForDemo.getSugar())+ "g");
+        sodiumView.setText(String.valueOf(fakeEntryForDemo.getSalt())+ "mg");
 
 
         return rootView;
