@@ -208,7 +208,8 @@
         android:text="Rescan"
         android:layout_alignParentTop="true"
         android:layout_toLeftOf="@+id/acceptButton"
-        android:id="@+id/rescanButton"/>
+        android:id="@+id/rescanButton"
+        android:onClick="onRescanClick"/>
 
     <Button
         android:layout_width="wrap_content"
@@ -216,7 +217,8 @@
         android:text="Accept"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
-        android:id="@+id/acceptButton"/>
+        android:id="@+id/acceptButton"
+        android:onClick="onAcceptClick"/>
 
 
 </RelativeLayout>

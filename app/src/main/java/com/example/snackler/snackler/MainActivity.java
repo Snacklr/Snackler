@@ -14,6 +14,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import com.example.snackler.snackler.ToolBarSetup;
 import com.github.mikephil.charting.charts.PieChart;
+
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import com.github.mikephil.charting.charts.PieChart;
@@ -74,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
 
         adapter.addFrag(new SnackStats(), "Progress");
         adapter.addFrag(new TwoFragment(), "Home");
-        adapter.addFrag(new SnackDetailFragment(), "History");
+        adapter.addFrag(new SnackDetailFragment(), "Recent");
         viewPager.setAdapter(adapter);
     }
 
@@ -109,7 +111,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    public void onAcceptClick(View v) {
+        viewPager.setCurrentItem(0);
+    }
 
+    public void onRescanClick(View v) {
+        viewPager.setCurrentItem(1);
+    }
 
 
 }
