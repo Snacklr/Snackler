@@ -49,6 +49,14 @@ public class SnackDay {
 
     String date;
 
+
+    public void setDailyCalories(int cals){
+
+        dailyCalories  = cals;
+
+
+    }
+
     public SnackDay(String date){
         this.date = date;
         this.entries = new ArrayList<SnackEntry>();
