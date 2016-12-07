@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
 
         adapter.addFrag(new SnackStats(), "Progress");
         adapter.addFrag(new TwoFragment(), "Home");
-        adapter.addFrag(new ThreeFragment(), "History");
+        adapter.addFrag(new SnackDetailFragment(), "History");
         viewPager.setAdapter(adapter);
     }
 

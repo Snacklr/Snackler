@@ -115,6 +115,6 @@ public class SnackEntry {
         return salt;
     }
 
-    public Date getTime() {return timestamp;}
+    public Date getTimestamp() {return timestamp;}
 
 }

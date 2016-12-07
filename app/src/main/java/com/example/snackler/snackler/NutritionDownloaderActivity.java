@@ -1,6 +1,7 @@
 package com.example.snackler.snackler;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -27,11 +28,12 @@ public class NutritionDownloaderActivity extends Activity {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_nutrition_info_download_task);
 
+            Intent detailIntent = new Intent(this, SnackDetailFragment.class);
+            startActivity(detailIntent);
 
-
-           String snackSearchTerm = getIntent().getExtras().getString(SNACK_TO_SEARCH);
-
-            new NutritionInfoDownloadTask().execute(snackSearchTerm);
+//           String snackSearchTerm = getIntent().getExtras().getString(SNACK_TO_SEARCH);
+//
+//            new NutritionInfoDownloadTask().execute(snackSearchTerm);
         }
 
 
