@@ -51,6 +51,8 @@ public class SnackStats extends Fragment {
     private float[] yData = {30f, 70f};
     private String[] xData = {"Remaining", "Used"};
     PieChart pieChart ;
+    SnackDay data;
+    SnackEntry testEntry;
 
     public SnackStats() {
         // Required empty public constructor
@@ -79,6 +81,14 @@ public class SnackStats extends Fragment {
     public void init(){
 
 
+        testEntry = new SnackEntry("Grape");
+        testEntry.setCalories(500);
+
+        data = new SnackDay("Tuesday,December 6th,");
+        data.setDailyCalories(800);
+        data.countCalories();
+
+
 
 
         Log.d(TAG, "onCreate: starting to create chart");
@@ -87,13 +97,12 @@ public class SnackStats extends Fragment {
 
 
         pieChart.setRotationEnabled(true);
-        //pieChart.setUsePercentValues(true);
-        //pieChart.setHoleColor(Color.BLUE);
-        //pieChart.setCenterTextColor(Color.BLACK);
         pieChart.setHoleRadius(60f);
         pieChart.setTransparentCircleAlpha(0);
         pieChart.setCenterText("Remaining Snack Calories");
         pieChart.setCenterTextSize(10);
+        pieChart.setDrawSliceText(false);
+        pieChart.setTransparentCircleRadius(20f);
         //pieChart.setDrawEntryLabels(true);
         //pieChart.setEntryLabelTextSize(20);
         //More options just check out the documentation!
@@ -139,7 +148,7 @@ public class SnackStats extends Fragment {
         ArrayList<String> xEntrys = new ArrayList<>();
 
         for(int i = 0; i < yData.length; i++){
-            yEntrys.add(new PieEntry(yData[i] , i));
+            yEntrys.add(new PieEntry(yData[i] , xData[i]));
         }
 
         for(int i = 1; i < xData.length; i++){
@@ -150,6 +159,7 @@ public class SnackStats extends Fragment {
         PieDataSet pieDataSet = new PieDataSet(yEntrys, "");
         pieDataSet.setSliceSpace(4);
         pieDataSet.setValueTextSize(12);
+
 
         //add colors to dataset
         ArrayList<Integer> colors = new ArrayList<>();
