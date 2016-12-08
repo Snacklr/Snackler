@@ -9,20 +9,20 @@ import java.util.ArrayList;
 public class SnackDay {
 
     private class NutritionInfo{
-         int numCalories;
-         int numCarbs;
-         int numProtein;
-         int numFat;
-         int numSugar;
-         int numSodium;
+        int numCalories;
+        int numCarbs;
+        int numProtein;
+        int numFat;
+        int numSugar;
+        int numSodium;
 
-       public NutritionInfo(int calories, int carbs, int protein, int fat, int sugar, int sodium){
-           numCalories = calories;
-           numCarbs = carbs;
-           numProtein = protein;
-           numFat = fat;
-           numSugar = sugar;
-           numSodium = sodium;
+        public NutritionInfo(int calories, int carbs, int protein, int fat, int sugar, int sodium){
+            numCalories = calories;
+            numCarbs = carbs;
+            numProtein = protein;
+            numFat = fat;
+            numSugar = sugar;
+            numSodium = sodium;
         }
 
     }
@@ -38,7 +38,7 @@ public class SnackDay {
     private int numSugar;
     private int numSodium;
 
-    private int dailyCalories;
+    private float dailyCalories;
     private int dailyCarbs;
     private int dailyProtein;
     private int dailyFat;
@@ -56,6 +56,78 @@ public class SnackDay {
 
 
     }
+
+    public float getDailyCalories(){
+
+        return dailyCalories ;
+
+
+    }
+    public float getDailyCarb(){
+
+        return dailyCarbs ;
+
+
+    }
+    public float getDailySugar(){
+
+        return dailySugar ;
+
+
+    }
+    public float getDailyPro(){
+
+        return dailyProtein ;
+
+
+    }
+    public float getDailyFat(){
+
+        return dailyFat;
+
+
+    }
+    public void setDailyCarb(int cals){
+
+        dailyCarbs  = cals;
+
+
+    }
+
+
+    public void setDailySugar(int cals){
+
+        dailySugar  = cals;
+
+
+    }
+
+    public void setDailyProtein(int cals){
+
+        dailyProtein  = cals;
+
+
+
+
+    }
+
+
+
+    public void setDailyFat(int cals){
+
+        dailyFat  = cals;
+
+
+    }
+
+
+    public void setDailySodium(int cals){
+
+        dailySodium  = cals;
+
+
+    }
+
 
     public SnackDay(String date){
         this.date = date;
@@ -75,9 +147,34 @@ public class SnackDay {
         dailySugar = 0;
         dailySodium = 0;
 
+
+
     }
 
 
+
+
+
+
+    public SnackDay(String date,float cal,int prot,int carb,int fat,int sug, int sod){
+        this.date = date;
+        this.entries = new ArrayList<SnackEntry>();
+        numEntries = 0;
+        numCalories = 0;
+        numCarbs = 0;
+        numProtein = 0;
+        numFat = 0;
+        numSugar = 0;
+        numSodium = 0;
+
+        dailyCalories = cal;
+        dailyCarbs = carb;
+        dailyProtein = prot;
+        dailyFat = fat;
+        dailySugar = sug;
+        dailySodium = sod;
+
+    }
 
     public void addEntry(SnackEntry entry){
         entries.add(entry);

@@ -58,17 +58,6 @@
       android:layout_marginBottom="15dp" />
 
   <TextView
-      android:text="Sugar"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:id="@+id/Sugar"
-      android:textAppearance="@android:style/TextAppearance.Material.Small"
-      android:layout_marginEnd="30dp"
-      android:layout_alignBaseline="@+id/Fat"
-      android:layout_alignBottom="@+id/Fat"
-      android:layout_alignParentEnd="true" />
-
-  <TextView
       android:text="30%"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
@@ -79,18 +68,6 @@
       android:layout_below="@+id/idPieChart"
       android:layout_alignStart="@+id/Carbs"
       android:layout_marginTop="23dp" />
-
-  <TextView
-      android:text="92%"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:id="@+id/sugarPar"
-      android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-      android:textStyle="normal|bold"
-      android:textColor="@color/black"
-      android:layout_alignBaseline="@+id/carbPer"
-      android:layout_alignBottom="@+id/carbPer"
-      android:layout_alignEnd="@+id/Sugar" />
 
   <TextView
       android:text="Protein"
@@ -131,5 +108,27 @@
       android:textColor="@color/black"
       android:layout_above="@+id/Fat"
       android:layout_alignStart="@+id/Fat" />
+
+  <TextView
+      android:text="92%"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:id="@+id/sugarPar"
+      android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+      android:textStyle="normal|bold"
+      android:textColor="@color/black"
+      android:layout_above="@+id/Sugar"
+      android:layout_toEndOf="@+id/Fat" />
+
+  <TextView
+      android:text="Sugar"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:id="@+id/Sugar"
+      android:textAppearance="@android:style/TextAppearance.Material.Small"
+      android:layout_marginEnd="25dp"
+      android:layout_alignParentEnd="true"
+      android:layout_alignBottom="@+id/Fat"
+      android:layout_below="@+id/fatPer" />
 
 </RelativeLayout>

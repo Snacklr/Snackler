@@ -1,13 +1,15 @@
+
 package com.example.snackler.snackler;
 
 import android.graphics.Color;
-import android.support.v4.app.FragmentActivity;
+import android.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.github.mikephil.charting.charts.PieChart;
@@ -32,6 +34,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import com.example.snackler.snackler.ToolBarSetup;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -47,12 +51,19 @@ import java.util.ArrayList;
 public class SnackStats extends Fragment {
 
     private static String TAG = "MainActivity";
-    public FragmentActivity mainStats;
+
     private float[] yData = {30f, 70f};
     private String[] xData = {"Remaining", "Used"};
     PieChart pieChart ;
-    SnackDay data;
-    SnackEntry testEntry;
+    SnackDay data = new SnackDay("Tuesday,December 6th 2016", (float)400.0,100,100,100,100,100);
+    SnackEntry fakeEntryForDemo = new SnackEntry("Grapes");
+    TextView carbPercent ;
+    TextView sugarPercent;
+    TextView protPercent ;
+    TextView fatPercent ;
+
+
+
 
     public SnackStats() {
         // Required empty public constructor
@@ -65,6 +76,11 @@ public class SnackStats extends Fragment {
 
         View view =  inflater.inflate(R.layout.activity_stats, container, false);
         pieChart = (PieChart) view.findViewById(R.id.idPieChart);
+        carbPercent = (TextView) view.findViewById(R.id.carbPer);
+        sugarPercent = (TextView) view.findViewById(R.id.sugarPar);
+        protPercent = (TextView) view.findViewById(R.id.proteinPer);
+        fatPercent = (TextView) view.findViewById(R.id.fatPer);
+
         init();
         return view;
 
@@ -73,7 +89,7 @@ public class SnackStats extends Fragment {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-       super.onCreate(savedInstanceState);
+        super.onCreate(savedInstanceState);
 
     }
 
@@ -81,18 +97,36 @@ public class SnackStats extends Fragment {
     public void init(){
 
 
-        testEntry = new SnackEntry("Grape");
-        testEntry.setCalories(500);
 
-        data = new SnackDay("Tuesday,December 6th,");
-        data.setDailyCalories(800);
-        data.countCalories();
+        fakeEntryForDemo.setQuantity(50);
+        fakeEntryForDemo.setServingSize(1.3);
+        fakeEntryForDemo.setCalories(250);
+        fakeEntryForDemo.setCarbohydrates(30);
+        fakeEntryForDemo.setFat(10);
+        fakeEntryForDemo.setProtein(3);
+        fakeEntryForDemo.setSugar(37);
+        fakeEntryForDemo.setSalt(97);
 
 
-
-
+        float remainCal = fakeEntryForDemo.getCalories()/data.getDailyCalories();
+        float totalCal = (data.getDailyCalories() - fakeEntryForDemo.getCalories())/data.getDailyCalories();
+        yData[0] = remainCal*100;
+        yData[1] = totalCal*100;
         Log.d(TAG, "onCreate: starting to create chart");
 
+
+
+        String sugPar = Float.toString(Math.round((fakeEntryForDemo.getSugar()/data.getDailySugar())*100)) + "%";
+        String proPar =  Float.toString(Math.round((fakeEntryForDemo.getProtein()/data.getDailyPro())*100)) + "%";
+        String fatPar = Float.toString(Math.round((fakeEntryForDemo.getFat()/data.getDailyFat())*100))  + "%";
+        String carbPar = Float.toString(Math.round((fakeEntryForDemo.getCarbohydrates()/data.getDailyCarb()) *100))  + "%";
+
+
+
+        sugarPercent.setText(sugPar);
+        protPercent.setText(proPar);
+        fatPercent.setText(fatPar);
+        carbPercent.setText(carbPar);
 
 
 
@@ -182,4 +216,3 @@ public class SnackStats extends Fragment {
     }
 
 }
-
