@@ -57,6 +57,9 @@ import android.view.Surface;
 import android.view.TextureView;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import java.io.File;
@@ -891,6 +894,7 @@ public class CameraFragment extends Fragment
         switch (view.getId()) {
             case R.id.picture: {
                 takePicture();
+                indicateSuccess();
                 break;
             }
             case R.id.info: {
@@ -904,6 +908,12 @@ public class CameraFragment extends Fragment
                 break;
             }
         }
+    }
+
+    private void indicateSuccess() {
+        Animation ballAnimation = AnimationUtils.loadAnimation(getView().getContext(), R.anim.animation_scan_indicator);
+        ImageButton imageButton = (ImageButton) getView().findViewById(R.id.imageViewScanIndicator);
+        imageButton.startAnimation(ballAnimation);
     }
 
     private void setAutoFlash(CaptureRequest.Builder requestBuilder) {
