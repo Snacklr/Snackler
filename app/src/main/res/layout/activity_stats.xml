@@ -31,17 +31,6 @@
       android:layout_alignParentEnd="true"
       android:layout_alignParentStart="true" />
 
-  <TextView
-      android:text="17%"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:id="@+id/proteinPer"
-      android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-      android:textStyle="normal|bold"
-      android:textColor="@color/black"
-      android:layout_above="@+id/Protein"
-      android:layout_alignParentStart="true" />
-
   <com.github.mikephil.charting.charts.PieChart
       android:layout_width="420dp"
       android:layout_height="240dp"
@@ -50,85 +39,46 @@
       android:layout_below="@+id/Date"
       android:layout_alignParentStart="true"></com.github.mikephil.charting.charts.PieChart>
 
-  <Space
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_above="@+id/sugarPar"
-      android:layout_alignStart="@+id/sugarPar"
-      android:layout_marginBottom="15dp" />
 
-  <TextView
-      android:text="30%"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:id="@+id/carbPer"
-      android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-      android:textStyle="normal|bold"
-      android:textColor="@color/black"
-      android:layout_below="@+id/idPieChart"
-      android:layout_alignStart="@+id/Carbs"
-      android:layout_marginTop="23dp" />
-
-  <TextView
-      android:text="Protein"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:id="@+id/Protein"
-      android:layout_below="@+id/carbPer"
-      android:layout_alignParentStart="true" />
-
-  <TextView
+  <Button
       android:text="Carbs"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:id="@+id/Carbs"
       android:textAppearance="@android:style/TextAppearance.Material.Small"
-      android:layout_toStartOf="@+id/fatPer"
-      android:layout_marginEnd="47dp"
-      android:layout_alignBottom="@+id/Protein" />
+      android:layout_alignBaseline="@+id/Sugar"
+      android:layout_alignBottom="@+id/Sugar"
+      android:layout_alignParentStart="true" />
 
-  <TextView
-      android:text="Fat"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:id="@+id/Fat"
-      android:textAppearance="@android:style/TextAppearance.Material.Small"
-      android:layout_marginEnd="68dp"
-      android:layout_alignBaseline="@+id/Carbs"
-      android:layout_alignBottom="@+id/Carbs"
-      android:layout_toStartOf="@+id/Sugar" />
-
-  <TextView
-      android:text="72%"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:id="@+id/fatPer"
-      android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-      android:textStyle="normal|bold"
-      android:textColor="@color/black"
-      android:layout_above="@+id/Fat"
-      android:layout_alignStart="@+id/Fat" />
-
-  <TextView
-      android:text="92%"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:id="@+id/sugarPar"
-      android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-      android:textStyle="normal|bold"
-      android:textColor="@color/black"
-      android:layout_above="@+id/Sugar"
-      android:layout_toEndOf="@+id/Fat" />
-
-  <TextView
+  <Button
       android:text="Sugar"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:id="@+id/Sugar"
       android:textAppearance="@android:style/TextAppearance.Material.Small"
-      android:layout_marginEnd="25dp"
+      android:layout_marginBottom="26dp"
+      android:layout_alignParentBottom="true"
       android:layout_alignParentEnd="true"
-      android:layout_alignBottom="@+id/Fat"
-      android:layout_below="@+id/fatPer" />
+      android:layout_marginEnd="18dp" />
+
+  <Button
+      android:text="Protein"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:id="@+id/Protein"
+      android:textAppearance="@android:style/TextAppearance.Material.Small"
+      android:layout_alignBaseline="@+id/Sugar"
+      android:layout_alignBottom="@+id/Sugar"
+      android:layout_centerHorizontal="true" />
+
+  <Button
+      android:text="Fat"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:id="@+id/Fat"
+      android:textAppearance="@android:style/TextAppearance.Material.Small"
+      android:layout_above="@+id/Protein"
+      android:layout_alignStart="@+id/Protein"
+      android:layout_marginBottom="20dp" />
 
 </RelativeLayout>
