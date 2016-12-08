@@ -49,6 +49,7 @@ import android.os.HandlerThread;
 import android.support.annotation.NonNull;
 import android.support.v13.app.FragmentCompat;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.util.Size;
 import android.util.SparseIntArray;
@@ -60,6 +61,7 @@ import android.view.ViewGroup;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
@@ -72,6 +74,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Timer;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
 
@@ -890,12 +893,24 @@ public class CameraFragment extends Fragment
         }
     }
 
+    private boolean _isSecondTap = false;
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.picture: {
-                takePicture();
-                indicateSuccess();
+//                takePicture();
+//                indicateSuccess();
+                Button button = (Button) view.findViewById(R.id.picture);
+                if (_isSecondTap) {
+                    button.setText("Scan");
+                    switchPage(2);
+                    _isSecondTap = false;
+                } else {
+                    button.setText("Continue");
+                    takePicture();
+                    indicateSuccess();
+                    _isSecondTap = true;
+                }
                 break;
             }
             case R.id.info: {
@@ -908,14 +923,41 @@ public class CameraFragment extends Fragment
                 }
                 break;
             }
+
         }
     }
 
+    /*
+     * AnimationListener code: http://stackoverflow.com/questions/7606498/end-animation-event-android
+     */
     private void indicateSuccess() {
+        // Grab the animation and the button
         Animation successAnimation = AnimationUtils.loadAnimation(getView().getContext(), R.anim.animation_scan_indicator);
         ImageButton imageButton = (ImageButton) getView().findViewById(R.id.imageViewScanIndicator);
+
+//        // Set up post animation actions
+//        successAnimation.setAnimationListener(new Animation.AnimationListener(){
+//            @Override
+//            public void onAnimationStart(Animation arg0) {
+//            }
+//            @Override
+//            public void onAnimationRepeat(Animation arg0) {
+//            }
+//            @Override
+//            public void onAnimationEnd(Animation arg0) {
+//                switchPage(2);
+//            }
+//        });
+
+        // Show Success Animation
         imageButton.setVisibility(View.VISIBLE);
         imageButton.startAnimation(successAnimation);
+    }
+
+    private void switchPage(int pageIndex) {
+        // Changes the current page
+        ViewPager viewPager = ((MainActivity)getActivity()).getViewPager();
+        viewPager.setCurrentItem(pageIndex);
     }
 
     private void setAutoFlash(CaptureRequest.Builder requestBuilder) {
