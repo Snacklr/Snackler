@@ -1,31 +1,19 @@
 package com.example.snackler.snackler;
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.support.v13.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import com.example.snackler.snackler.ToolBarSetup;
+
 import com.github.mikephil.charting.charts.PieChart;
 
-import android.util.Log;
 import android.view.View;
-import android.widget.Button;
-import com.github.mikephil.charting.charts.PieChart;
-import com.github.mikephil.charting.components.Legend;
-import com.github.mikephil.charting.data.Entry;
-import com.github.mikephil.charting.data.PieData;
-import com.github.mikephil.charting.data.PieDataSet;
-import com.github.mikephil.charting.data.PieEntry;
-import com.github.mikephil.charting.highlight.Highlight;
-import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -75,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getFragmentManager());
 
         adapter.addFrag(new SnackStats(), "Progress");
-        adapter.addFrag(new TwoFragment(), "Home");
+        adapter.addFrag(new CameraFragment(), "Home");
         adapter.addFrag(new SnackDetailFragment(), "Recent");
         viewPager.setAdapter(adapter);
     }
