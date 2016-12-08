@@ -57,6 +57,7 @@ import android.view.Surface;
 import android.view.TextureView;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
@@ -911,9 +912,10 @@ public class CameraFragment extends Fragment
     }
 
     private void indicateSuccess() {
-        Animation ballAnimation = AnimationUtils.loadAnimation(getView().getContext(), R.anim.animation_scan_indicator);
+        Animation successAnimation = AnimationUtils.loadAnimation(getView().getContext(), R.anim.animation_scan_indicator);
         ImageButton imageButton = (ImageButton) getView().findViewById(R.id.imageViewScanIndicator);
-        imageButton.startAnimation(ballAnimation);
+        imageButton.setVisibility(View.VISIBLE);
+        imageButton.startAnimation(successAnimation);
     }
 
     private void setAutoFlash(CaptureRequest.Builder requestBuilder) {
@@ -999,6 +1001,7 @@ public class CameraFragment extends Fragment
         @Override
         public Dialog onCreateDialog(Bundle savedInstanceState) {
             final Activity activity = getActivity();
+
             return new AlertDialog.Builder(activity)
                     .setMessage(getArguments().getString(ARG_MESSAGE))
                     .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
