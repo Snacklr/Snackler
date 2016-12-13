@@ -9,3 +9,5 @@ https://github.com/googlesamples/android-Camera2Basic
 Color palette modified from:
 http://www.colourlovers.com/palette/871636/A_Dream_in_Color
 
+Chart view from:
+https://github.com/PhilJay/MPAndroidChart
