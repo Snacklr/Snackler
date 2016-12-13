@@ -49,7 +49,6 @@ import android.os.HandlerThread;
 import android.support.annotation.NonNull;
 import android.support.v13.app.FragmentCompat;
 import android.support.v4.content.ContextCompat;
-import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.util.Size;
 import android.util.SparseIntArray;
@@ -58,11 +57,6 @@ import android.view.Surface;
 import android.view.TextureView;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.AlphaAnimation;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.Toast;
 
 import java.io.File;
@@ -74,7 +68,6 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-import java.util.Timer;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
 
@@ -90,7 +83,6 @@ public class CameraFragment extends Fragment
     private static final SparseIntArray ORIENTATIONS = new SparseIntArray();
     private static final int REQUEST_CAMERA_PERMISSION = 1;
     private static final String FRAGMENT_DIALOG = "dialog";
-    private static int picsTaken;
 
     static {
         ORIENTATIONS.append(Surface.ROTATION_0, 90);
@@ -254,7 +246,6 @@ public class CameraFragment extends Fragment
 
         @Override
         public void onImageAvailable(ImageReader reader) {
-            mFile = new File(getActivity().getExternalFilesDir(null), "pic" + picsTaken + ".jpg");
             mBackgroundHandler.post(new ImageSaver(reader.acquireNextImage(), mFile));
         }
 
@@ -446,7 +437,7 @@ public class CameraFragment extends Fragment
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-
+        mFile = new File(getActivity().getExternalFilesDir(null), "pic.jpg");
     }
 
     @Override
@@ -454,7 +445,6 @@ public class CameraFragment extends Fragment
         super.onResume();
         startBackgroundThread();
 
-        mFile = new File(getActivity().getExternalFilesDir(null), "pic" + picsTaken + ".jpg");
         // When the screen is turned off and turned back on, the SurfaceTexture is already
         // available, and "onSurfaceTextureAvailable" will not be called. In that case, we can open
         // a camera and start preview from here (otherwise, we wait until the surface is ready in
@@ -850,7 +840,6 @@ public class CameraFragment extends Fragment
                                                @NonNull TotalCaptureResult result) {
                     showToast("Saved: " + mFile);
                     Log.d(TAG, mFile.toString());
-                    picsTaken++;
                     unlockFocus();
                 }
             };
@@ -897,26 +886,11 @@ public class CameraFragment extends Fragment
         }
     }
 
-    private boolean _isSecondTap = false;
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.picture: {
-//                takePicture();
-//                indicateSuccess();
-                Button button = (Button) view.findViewById(R.id.picture);
-                if (_isSecondTap) {
-                    button.setText("Scan");
-                    ImageButton imageButton = (ImageButton) getView().findViewById(R.id.imageViewScanIndicator);
-                    imageButton.setVisibility(View.GONE);
-                    switchPage(2);
-                    _isSecondTap = false;
-                } else {
-                    button.setText("Continue");
-                    takePicture();
-                    indicateSuccess();
-                    _isSecondTap = true;
-                }
+                takePicture();
                 break;
             }
             case R.id.info: {
@@ -929,41 +903,7 @@ public class CameraFragment extends Fragment
                 }
                 break;
             }
-
         }
-    }
-
-    /*
-     * AnimationListener code: http://stackoverflow.com/questions/7606498/end-animation-event-android
-     */
-    private void indicateSuccess() {
-        // Grab the animation and the button
-        Animation successAnimation = AnimationUtils.loadAnimation(getView().getContext(), R.anim.animation_scan_indicator);
-        ImageButton imageButton = (ImageButton) getView().findViewById(R.id.imageViewScanIndicator);
-
-//        // Set up post animation actions
-//        successAnimation.setAnimationListener(new Animation.AnimationListener(){
-//            @Override
-//            public void onAnimationStart(Animation arg0) {
-//            }
-//            @Override
-//            public void onAnimationRepeat(Animation arg0) {
-//            }
-//            @Override
-//            public void onAnimationEnd(Animation arg0) {
-//                switchPage(2);
-//            }
-//        });
-
-        // Show Success Animation
-        imageButton.setVisibility(View.VISIBLE);
-        imageButton.startAnimation(successAnimation);
-    }
-
-    private void switchPage(int pageIndex) {
-        // Changes the current page
-        ViewPager viewPager = ((MainActivity)getActivity()).getViewPager();
-        viewPager.setCurrentItem(pageIndex);
     }
 
     private void setAutoFlash(CaptureRequest.Builder requestBuilder) {
@@ -1049,7 +989,6 @@ public class CameraFragment extends Fragment
         @Override
         public Dialog onCreateDialog(Bundle savedInstanceState) {
             final Activity activity = getActivity();
-
             return new AlertDialog.Builder(activity)
                     .setMessage(getArguments().getString(ARG_MESSAGE))
                     .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {

@@ -1,6 +1,8 @@
 package com.example.snackler.snackler;
 
 import android.support.v7.app.AppCompatActivity;
+import android.content.Intent;
+import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import android.support.design.widget.TabLayout;
@@ -9,69 +11,59 @@ import android.app.FragmentManager;
 import android.support.v13.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.Toolbar;
-import android.widget.Button;
-import android.content.Intent;
 
 import com.github.mikephil.charting.charts.PieChart;
 
 import android.view.View;
+import android.widget.Button;
 
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 
-public class MainActivity extends AppCompatActivity {
+/**
+ * Created by magneta94 on 12/13/16.
+ */
+
+public class ScanActivity extends AppCompatActivity{
 
     public static PieChart pieChart;
     private Toolbar toolbar;
     public TabLayout tabLayout;
-    private static ViewPager viewPager;
-
-    private static SnackDay todaysSnacks;
+    public static ViewPager viewPager;
 
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.login_activity);
+        setContentView(R.layout.activity_main);
 
 
+        viewPager = (ViewPager) findViewById(R.id.viewpager);
+        setupViewPager();
 
-        todaysSnacks = new SnackDay(new Date(Calendar.DATE));
-
-        todaysSnacks.dailyCalories = 800;
-        todaysSnacks.dailyFat = 90;
-        todaysSnacks.dailyCarbs = 500;
-        todaysSnacks.dailyProtein = 100;
-
-        SnackEntry testEntry = new SnackEntry("Grape");
-        testEntry.setCalories(500);
-        testEntry.setFat(40);
-        testEntry.setCarbohydrates(255);
-        testEntry.setProtein(70);
-
-        todaysSnacks.addEntry(testEntry);
+        tabLayout = (TabLayout) findViewById(R.id.tabs);
+        tabLayout.setupWithViewPager(viewPager);
+        ToolBarSetup.setupTabIcons(tabLayout);
 
 
-        Button logButton = (Button) findViewById(R.id.login);
+        // Button scanButton = (Button) findViewById(R.id.scanItemButton);
+       /* scanButton.setOnClickListener(new View.OnClickListener() {
 
-        logButton.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View v){
-                startActivity(new Intent(MainActivity.this, ScanActivity.class));
-            }
-        });
+            @Override
+             public void onClick(View view) {
 
-        Button signUpButton = (Button) findViewById(R.id.signup);
-        signUpButton.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View v){
-                startActivity(new Intent(MainActivity.this, RegisterActivity.class));
-            }
-        });
+              //We ned to decide how to do scanning, but for now I am just passing a "snack search term" to the downloader
+             Intent searchSnackIntent = new Intent(MainActivity.this, NutritionDownloaderActivity.class);
+             searchSnackIntent.putExtra(NutritionDownloaderActivity.SNACK_TO_SEARCH, "Grape");
+             startActivity(searchSnackIntent);
+                               }
+
+        });*/
+
+
     }
-
 
 
     public void setupViewPager() {
@@ -82,8 +74,6 @@ public class MainActivity extends AppCompatActivity {
         adapter.addFrag(new SnackDetailFragment(), "Recent");
         viewPager.setAdapter(adapter);
     }
-
-    public static SnackDay getDayObject() {return todaysSnacks;}
 
 
     class ViewPagerAdapter extends FragmentPagerAdapter {
@@ -116,13 +106,17 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public static void onAcceptClick(View v) {
-        viewPager.setCurrentItem(0);
-    }
+
+    public static void onAcceptClick(View v) {viewPager.setCurrentItem(0);}
+
 
     public void onRescanClick(View v) {
         viewPager.setCurrentItem(1);
     }
+
+
+
+
 
 
 }
