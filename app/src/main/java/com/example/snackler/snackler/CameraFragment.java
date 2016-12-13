@@ -90,6 +90,7 @@ public class CameraFragment extends Fragment
     private static final SparseIntArray ORIENTATIONS = new SparseIntArray();
     private static final int REQUEST_CAMERA_PERMISSION = 1;
     private static final String FRAGMENT_DIALOG = "dialog";
+    private static int picsTaken;
 
     static {
         ORIENTATIONS.append(Surface.ROTATION_0, 90);
@@ -253,6 +254,7 @@ public class CameraFragment extends Fragment
 
         @Override
         public void onImageAvailable(ImageReader reader) {
+            mFile = new File(getActivity().getExternalFilesDir(null), "pic" + picsTaken + ".jpg");
             mBackgroundHandler.post(new ImageSaver(reader.acquireNextImage(), mFile));
         }
 
@@ -444,7 +446,7 @@ public class CameraFragment extends Fragment
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        mFile = new File(getActivity().getExternalFilesDir(null), "pic.jpg");
+
     }
 
     @Override
@@ -452,6 +454,7 @@ public class CameraFragment extends Fragment
         super.onResume();
         startBackgroundThread();
 
+        mFile = new File(getActivity().getExternalFilesDir(null), "pic" + picsTaken + ".jpg");
         // When the screen is turned off and turned back on, the SurfaceTexture is already
         // available, and "onSurfaceTextureAvailable" will not be called. In that case, we can open
         // a camera and start preview from here (otherwise, we wait until the surface is ready in
@@ -847,6 +850,7 @@ public class CameraFragment extends Fragment
                                                @NonNull TotalCaptureResult result) {
                     showToast("Saved: " + mFile);
                     Log.d(TAG, mFile.toString());
+                    picsTaken++;
                     unlockFocus();
                 }
             };
