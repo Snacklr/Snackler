@@ -54,7 +54,6 @@ public class SnackStats extends Fragment {
     private String[] xData = {"Remaining", "Used"};
     PieChart pieChart ;
     SnackDay data;
-    SnackEntry testEntry;
 
     View rootView;
 
@@ -69,12 +68,6 @@ public class SnackStats extends Fragment {
 
         rootView =  inflater.inflate(R.layout.activity_stats, container, false);
         pieChart = (PieChart) rootView.findViewById(R.id.idPieChart);
-
-        testEntry = new SnackEntry("Grape");
-        testEntry.setCalories(500);
-        testEntry.setFat(40);
-        testEntry.setCarbohydrates(255);
-        testEntry.setProtein(70);
 
         System.err.println("working");
 
@@ -103,17 +96,7 @@ public class SnackStats extends Fragment {
 
     public void init(){
 
-
-        data = new SnackDay("Tuesday,December 6th,");
-        data.dailyCalories = 800;
-        data.dailyFat = 90;
-        data.dailyCarbs = 500;
-        data.dailyProtein = 100;
-
-        data.addEntry(testEntry);
-
-
-
+        data = MainActivity.getDayObject();
 
 
         Log.d(TAG, "onCreate: starting to create chart");
@@ -135,7 +118,6 @@ public class SnackStats extends Fragment {
         yData[1] = used;
 
         setUpChart("Calories");
-        rootView.postInvalidate();
     }
 
 

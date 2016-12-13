@@ -1,6 +1,7 @@
 package com.example.snackler.snackler;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  * Created by romolatty on 12/5/16.
@@ -47,12 +48,12 @@ public class SnackDay {
 
 
 
-    String date;
+    public Date date;
 
 
 
 
-    public SnackDay(String date){
+    public SnackDay(Date date){
         this.date = date;
         this.entries = new ArrayList<SnackEntry>();
         numEntries = 0;
