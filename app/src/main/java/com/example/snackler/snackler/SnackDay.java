@@ -76,6 +76,14 @@ public class SnackDay {
 
     public void addEntry(SnackEntry entry){
         entries.add(entry);
+
+        numCalories += entry.getCalories();
+        numCarbs += entry.getCarbohydrates();
+        numProtein += entry.getProtein();
+        numFat += entry.getFat();
+        numSugar += entry.getSugar();
+        numSodium += entry.getSalt();
+
         numEntries++;
     }
     public void removeEntry(SnackEntry entry){
@@ -105,85 +113,30 @@ public class SnackDay {
 
     }
 
-    public int countCalories(){
-        int ret = 0;
-        for(SnackEntry s: entries){
-            ret += s.getCalories() ;
-        }
-
-        return ret;
+    public int getCalories(){
+        return numCalories;
     }
 
-    public int countCarbs(){
-        int ret = 0;
-        for(SnackEntry s: entries){
-            ret += s.getCarbohydrates() ;
-        }
-
-        return ret;
+    public int getCarbs(){
+       return numCarbs;
     }
 
-    public int countProtein(){
-        int ret = 0;
-        for(SnackEntry s: entries){
-            ret += s.getProtein() ;
-        }
-
-        return ret;
+    public int getProtein(){
+        return numProtein;
     }
 
-    public int countFat(){
-        int ret = 0;
-        for(SnackEntry s: entries){
-            ret += s.getFat() ;
-        }
-
-        return ret;
+    public int getFat(){
+        return numFat;
     }
 
-    public int countSugar(){
-        int ret = 0;
-        for(SnackEntry s: entries){
-            ret += s.getSugar() ;
-        }
-
-        return ret;
+    public int getSugar(){
+        return numSugar;
     }
 
-    public int countSodium(){
-        int ret = 0;
-        for(SnackEntry s: entries){
-            ret += s.getSalt() ;
-        }
-
-        return ret;
+    public int getSodium(){
+        return numSodium;
     }
-/*
-    public GraphView createGraph(String type){
 
-        switch (type){
-            case "calories":
-
-                break;
-            case "carbs":
-                break;
-            case "protein":
-                break;
-            case "fat":
-                break;
-            case "sugar":
-                break;
-            case "sodium":
-                break;
-            case "all":
-                break;
-
-        }
-
-        return null;
-
-    }
-*/
 
 
 }

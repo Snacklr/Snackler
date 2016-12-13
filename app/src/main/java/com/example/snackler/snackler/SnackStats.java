@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.github.mikephil.charting.charts.PieChart;
@@ -55,6 +56,8 @@ public class SnackStats extends Fragment {
     SnackDay data;
     SnackEntry testEntry;
 
+    View rootView;
+
     public SnackStats() {
         // Required empty public constructor
     }
@@ -64,8 +67,8 @@ public class SnackStats extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
 
-        View view =  inflater.inflate(R.layout.activity_stats, container, false);
-        pieChart = (PieChart) view.findViewById(R.id.idPieChart);
+        rootView =  inflater.inflate(R.layout.activity_stats, container, false);
+        pieChart = (PieChart) rootView.findViewById(R.id.idPieChart);
 
         testEntry = new SnackEntry("Grape");
         testEntry.setCalories(500);
@@ -76,9 +79,9 @@ public class SnackStats extends Fragment {
         System.err.println("working");
 
         init();
-        setUpChart();
+        calorieButtonPressed();
 
-        final Button button = (Button) view.findViewById(R.id.Fat);
+        final Button button = (Button) rootView.findViewById(R.id.Fat);
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 System.err.println("button pressed");
@@ -86,7 +89,7 @@ public class SnackStats extends Fragment {
             }
         });
 
-        return view;
+        return rootView;
 
 
     }
@@ -122,13 +125,34 @@ public class SnackStats extends Fragment {
 
     }
 
-    public void fatButtonPressed(){
-        fatView(data);
+    public void calorieButtonPressed(){
 
+        float used = data.getCalories();
+        float remaining = data.dailyCalories - used;
+
+        yData = new float[2];
+        yData[0] = remaining;
+        yData[1] = used;
+
+        setUpChart("Calories");
+        rootView.postInvalidate();
     }
 
 
-    private void setUpChart(){
+    public void fatButtonPressed(){
+
+        float used = data.getFat();
+        float remaining = data.dailyFat - used;
+
+        yData = new float[2];
+        yData[0] = remaining;
+        yData[1] = used;
+
+        setUpChart("Fat");
+    }
+
+
+    private void setUpChart(String macroType){
         pieChart.setRotationEnabled(true);
         pieChart.setHoleRadius(60f);
         pieChart.setTransparentCircleAlpha(0);
@@ -141,6 +165,8 @@ public class SnackStats extends Fragment {
         //More options just check out the documentation!
 
         addDataSet();
+        TextView titleTextView = (TextView) rootView.findViewById(R.id.snackTypeTitle);
+        titleTextView.setText(macroType);
 
         pieChart.setOnChartValueSelectedListener(new OnChartValueSelectedListener() {
             @Override
@@ -173,49 +199,6 @@ public class SnackStats extends Fragment {
 
     }
 
-    private void fatView(SnackDay day){
-
-        ArrayList<PieEntry> yEntrys = new ArrayList<>();
-        ArrayList<String> xEntrys = new ArrayList<>();
-
-
-        float remaining = (day.dailyFat - day.countFat()) / day.dailyFat;
-        float used = (day.countFat()) / day.dailyFat;
-
-       // (total - used)/(total)   (total - (total - used))/total
-        yEntrys.add(new PieEntry((remaining) , used));
-
-
-        for(int i = 1; i < xData.length; i++){
-            xEntrys.add(xData[i]);
-        }
-
-        //create the data set
-        PieDataSet pieDataSet = new PieDataSet(yEntrys, "");
-        pieDataSet.setSliceSpace(4);
-        pieDataSet.setValueTextSize(12);
-
-
-        //add colors to dataset
-        ArrayList<Integer> colors = new ArrayList<>();
-        colors.add(Color.argb(255,81,149,72));
-        colors.add(Color.argb(255,136,196,37));
-
-
-        pieDataSet.setColors(colors);
-
-        //add legend to chart
-        Legend legend = pieChart.getLegend();
-        legend.setForm(Legend.LegendForm.CIRCLE);
-        legend.setPosition(Legend.LegendPosition.LEFT_OF_CHART);
-
-        //create pie data object
-        PieData pieData = new PieData(pieDataSet);
-        pieChart.setData(pieData);
-
-
-
-    }
 
 
     private void addDataSet() {
@@ -254,7 +237,7 @@ public class SnackStats extends Fragment {
         PieData pieData = new PieData(pieDataSet);
         pieChart.setData(pieData);
 
-
+        pieChart.postInvalidate();
     }
 
 }
