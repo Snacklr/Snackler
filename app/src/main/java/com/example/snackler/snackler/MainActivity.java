@@ -15,6 +15,8 @@ import com.github.mikephil.charting.charts.PieChart;
 import android.view.View;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 
@@ -23,7 +25,9 @@ public class MainActivity extends AppCompatActivity {
     public static PieChart pieChart;
     private Toolbar toolbar;
     public TabLayout tabLayout;
-    private ViewPager viewPager;
+    private static ViewPager viewPager;
+
+    private static SnackDay todaysSnacks;
 
 
 
@@ -39,22 +43,22 @@ public class MainActivity extends AppCompatActivity {
         tabLayout.setupWithViewPager(viewPager);
         ToolBarSetup.setupTabIcons(tabLayout);
 
+        todaysSnacks = new SnackDay(new Date(Calendar.DATE));
 
-       // Button scanButton = (Button) findViewById(R.id.scanItemButton);
-       /* scanButton.setOnClickListener(new View.OnClickListener() {
+        todaysSnacks.dailyCalories = 800;
+        todaysSnacks.dailyFat = 90;
+        todaysSnacks.dailyCarbs = 500;
+        todaysSnacks.dailyProtein = 100;
+        todaysSnacks.dailySugar = 80;
 
-            @Override
-             public void onClick(View view) {
+        SnackEntry testEntry = new SnackEntry("Grape");
+        testEntry.setCalories(500);
+        testEntry.setFat(40);
+        testEntry.setCarbohydrates(255);
+        testEntry.setProtein(70);
+        testEntry.setSugar(25);
 
-              //We ned to decide how to do scanning, but for now I am just passing a "snack search term" to the downloader
-             Intent searchSnackIntent = new Intent(MainActivity.this, NutritionDownloaderActivity.class);
-             searchSnackIntent.putExtra(NutritionDownloaderActivity.SNACK_TO_SEARCH, "Grape");
-             startActivity(searchSnackIntent);
-                               }
-
-        });*/
-
-
+        todaysSnacks.addEntry(testEntry);
     }
 
 
@@ -67,6 +71,11 @@ public class MainActivity extends AppCompatActivity {
         adapter.addFrag(new SnackDetailFragment(), "Recent");
         viewPager.setAdapter(adapter);
     }
+
+    public ViewPager getViewPager() {
+        return this.viewPager;
+    }
+    public static SnackDay getDayObject() {return todaysSnacks;}
 
 
     class ViewPagerAdapter extends FragmentPagerAdapter {
@@ -99,7 +108,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public void onAcceptClick(View v) {
+    public static void onAcceptClick(View v) {
         viewPager.setCurrentItem(0);
     }
 
