@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
     public static PieChart pieChart;
     private Toolbar toolbar;
     public TabLayout tabLayout;
-    private ViewPager viewPager;
+    private static ViewPager viewPager;
 
     private static SnackDay todaysSnacks;
 
@@ -103,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public void onAcceptClick(View v) {
+    public static void onAcceptClick(View v) {
         viewPager.setCurrentItem(0);
     }
 
