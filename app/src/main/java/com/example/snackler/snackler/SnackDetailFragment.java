@@ -74,6 +74,7 @@ public class SnackDetailFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 todaysSnacks.addEntry(fakeEntryForDemo);
+                ScanActivity.onAcceptClick(view);
             }
         });
 
