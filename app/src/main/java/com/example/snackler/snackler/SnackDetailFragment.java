@@ -36,7 +36,7 @@ public class SnackDetailFragment extends Fragment {
         TextView sugarView = (TextView) rootView.findViewById(R.id.sugar);
         TextView sodiumView = (TextView) rootView.findViewById(R.id.sodium);
 
-        SnackEntry fakeEntryForDemo = new SnackEntry("Grapes");
+        SnackEntry fakeEntryForDemo = new SnackEntry("Pistachios");
         fakeEntryForDemo.setQuantity(50);
         fakeEntryForDemo.setServingSize(1.3);
         fakeEntryForDemo.setCalories(200);
@@ -46,7 +46,8 @@ public class SnackDetailFragment extends Fragment {
         fakeEntryForDemo.setSugar(20);
         fakeEntryForDemo.setSalt(100);
 
-        String grapeImageURL = "http://www.tpswinegrapes.com/images/660/images//white-grapes.jpg";
+        //String grapeImageURL = "http://www.tpswinegrapes.com/images/660/images//white-grapes.jpg";
+        String grapeImageURL = "http://www.trail-running-blog.com/wp-content/uploads/2013/03/pistachios.jpg";
 
 
         snackTitleView.setText(fakeEntryForDemo.getSnackType());
