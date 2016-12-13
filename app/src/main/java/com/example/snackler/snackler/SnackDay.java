@@ -1,6 +1,7 @@
 package com.example.snackler.snackler;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  * Created by romolatty on 12/5/16.
@@ -9,20 +10,20 @@ import java.util.ArrayList;
 public class SnackDay {
 
     private class NutritionInfo{
-        int numCalories;
-        int numCarbs;
-        int numProtein;
-        int numFat;
-        int numSugar;
-        int numSodium;
+         int numCalories;
+         int numCarbs;
+         int numProtein;
+         int numFat;
+         int numSugar;
+         int numSodium;
 
-        public NutritionInfo(int calories, int carbs, int protein, int fat, int sugar, int sodium){
-            numCalories = calories;
-            numCarbs = carbs;
-            numProtein = protein;
-            numFat = fat;
-            numSugar = sugar;
-            numSodium = sodium;
+       public NutritionInfo(int calories, int carbs, int protein, int fat, int sugar, int sodium){
+           numCalories = calories;
+           numCarbs = carbs;
+           numProtein = protein;
+           numFat = fat;
+           numSugar = sugar;
+           numSodium = sodium;
         }
 
     }
@@ -38,98 +39,21 @@ public class SnackDay {
     private int numSugar;
     private int numSodium;
 
-    private float dailyCalories;
-    private int dailyCarbs;
-    private int dailyProtein;
-    private int dailyFat;
-    private int dailySugar;
-    private int dailySodium;
+    public int dailyCalories;
+    public int dailyCarbs;
+    public int dailyProtein;
+    public int dailyFat;
+    public int dailySugar;
+    public int dailySodium;
 
 
 
-    String date;
-
-
-    public void setDailyCalories(int cals){
-
-        dailyCalories  = cals;
-
-
-    }
-
-    public float getDailyCalories(){
-
-        return dailyCalories ;
-
-
-    }
-    public float getDailyCarb(){
-
-        return dailyCarbs ;
-
-
-    }
-    public float getDailySugar(){
-
-        return dailySugar ;
-
-
-    }
-    public float getDailyPro(){
-
-        return dailyProtein ;
-
-
-    }
-    public float getDailyFat(){
-
-        return dailyFat;
-
-
-    }
-    public void setDailyCarb(int cals){
-
-        dailyCarbs  = cals;
-
-
-    }
-
-
-    public void setDailySugar(int cals){
-
-        dailySugar  = cals;
-
-
-    }
-
-    public void setDailyProtein(int cals){
-
-        dailyProtein  = cals;
+    public Date date;
 
 
 
 
-    }
-
-
-
-    public void setDailyFat(int cals){
-
-        dailyFat  = cals;
-
-
-    }
-
-
-    public void setDailySodium(int cals){
-
-        dailySodium  = cals;
-
-
-    }
-
-
-    public SnackDay(String date){
+    public SnackDay(Date date){
         this.date = date;
         this.entries = new ArrayList<SnackEntry>();
         numEntries = 0;
@@ -147,37 +71,20 @@ public class SnackDay {
         dailySugar = 0;
         dailySodium = 0;
 
-
-
     }
 
 
-
-
-
-
-    public SnackDay(String date,float cal,int prot,int carb,int fat,int sug, int sod){
-        this.date = date;
-        this.entries = new ArrayList<SnackEntry>();
-        numEntries = 0;
-        numCalories = 0;
-        numCarbs = 0;
-        numProtein = 0;
-        numFat = 0;
-        numSugar = 0;
-        numSodium = 0;
-
-        dailyCalories = cal;
-        dailyCarbs = carb;
-        dailyProtein = prot;
-        dailyFat = fat;
-        dailySugar = sug;
-        dailySodium = sod;
-
-    }
 
     public void addEntry(SnackEntry entry){
         entries.add(entry);
+
+        numCalories += entry.getCalories();
+        numCarbs += entry.getCarbohydrates();
+        numProtein += entry.getProtein();
+        numFat += entry.getFat();
+        numSugar += entry.getSugar();
+        numSodium += entry.getSalt();
+
         numEntries++;
     }
     public void removeEntry(SnackEntry entry){
@@ -207,85 +114,30 @@ public class SnackDay {
 
     }
 
-    public int countCalories(){
-        int ret = 0;
-        for(SnackEntry s: entries){
-            ret += s.getCalories() ;
-        }
-
-        return ret;
+    public int getCalories(){
+        return numCalories;
     }
 
-    public int countCarbs(){
-        int ret = 0;
-        for(SnackEntry s: entries){
-            ret += s.getCarbohydrates() ;
-        }
-
-        return ret;
+    public int getCarbs(){
+       return numCarbs;
     }
 
-    public int countProtein(){
-        int ret = 0;
-        for(SnackEntry s: entries){
-            ret += s.getProtein() ;
-        }
-
-        return ret;
+    public int getProtein(){
+        return numProtein;
     }
 
-    public int countFat(){
-        int ret = 0;
-        for(SnackEntry s: entries){
-            ret += s.getFat() ;
-        }
-
-        return ret;
+    public int getFat(){
+        return numFat;
     }
 
-    public int countSugar(){
-        int ret = 0;
-        for(SnackEntry s: entries){
-            ret += s.getSugar() ;
-        }
-
-        return ret;
+    public int getSugar(){
+        return numSugar;
     }
 
-    public int countSodium(){
-        int ret = 0;
-        for(SnackEntry s: entries){
-            ret += s.getSalt() ;
-        }
-
-        return ret;
+    public int getSodium(){
+        return numSodium;
     }
-/*
-    public GraphView createGraph(String type){
 
-        switch (type){
-            case "calories":
-
-                break;
-            case "carbs":
-                break;
-            case "protein":
-                break;
-            case "fat":
-                break;
-            case "sugar":
-                break;
-            case "sodium":
-                break;
-            case "all":
-                break;
-
-        }
-
-        return null;
-
-    }
-*/
 
 
 }
