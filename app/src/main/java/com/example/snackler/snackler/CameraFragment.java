@@ -903,6 +903,8 @@ public class CameraFragment extends Fragment
                 Button button = (Button) view.findViewById(R.id.picture);
                 if (_isSecondTap) {
                     button.setText("Scan");
+                    ImageButton imageButton = (ImageButton) getView().findViewById(R.id.imageViewScanIndicator);
+                    imageButton.setVisibility(View.GONE);
                     switchPage(2);
                     _isSecondTap = false;
                 } else {
