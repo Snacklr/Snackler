@@ -96,6 +96,24 @@
             android:layout_height="10dp" />
 
         <TextView
+            android:text="Carb Goal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/carbGoal"
+            android:textSize="18sp"
+            android:textColor="@color/white"/>
+
+        <SeekBar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/carb_input"
+            android:max="150" />/>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="10dp" />
+
+        <TextView
             android:text="Fat Goal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -107,25 +125,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/fat_input"
-            android:max="150" />
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="10dp" />
-
-        <TextView
-            android:text="Sugar Goal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/sugGoal"
-            android:textColor="@color/white"
-            android:textSize="18sp" />
-
-        <SeekBar
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/sugar_input"
-            android:max="150" />
+            android:max="50" />
 
         <Space
             android:layout_width="match_parent"
@@ -143,25 +143,25 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/protein_input"
-            android:max="150" />/>
+            android:max="50" />/>
 
         <Space
             android:layout_width="match_parent"
             android:layout_height="10dp" />
 
         <TextView
-            android:text="Carb Goal"
+            android:text="Sugar Goal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/carbGoal"
-            android:textSize="18sp"
-            android:textColor="@color/white"/>
+            android:id="@+id/sugGoal"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
 
         <SeekBar
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/carb_input"
-            android:max="300" />/>
+            android:id="@+id/sugar_input"
+            android:max="50" />
 
         <Space
             android:layout_width="match_parent"
@@ -178,7 +178,8 @@
         <SeekBar
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/sod_input" />
+            android:id="@+id/sod_input"
+            android:max="1000" />/>
 
         <Space
             android:layout_width="match_parent"

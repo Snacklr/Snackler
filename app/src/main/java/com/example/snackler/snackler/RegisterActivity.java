@@ -79,7 +79,7 @@ public class RegisterActivity  extends AppCompatActivity{
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
 
-                calView.setText("Calorie Goal : " + progress);
+                calView.setText("Calorie Goal : " + progress + " cal");
                 snacks.dailyCalories = progress;
 
             }
@@ -102,7 +102,7 @@ public class RegisterActivity  extends AppCompatActivity{
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-                proView.setText("Protein Goal: " + progress);
+                proView.setText("Protein Goal: " + progress + " g");
                 snacks.dailyProtein = progress;
             }
         });
@@ -125,7 +125,7 @@ public class RegisterActivity  extends AppCompatActivity{
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-                carbView.setText("Carb Goal: " + progress);
+                carbView.setText("Carb Goal: " + progress + " g");
                 snacks.dailyCarbs = progress;
             }
         });
@@ -146,7 +146,7 @@ public class RegisterActivity  extends AppCompatActivity{
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-                fatView.setText("Fat Goal: " + progress);
+                fatView.setText("Fat Goal: " + progress + " g");
                 snacks.dailyFat = progress;
 
             }
@@ -168,7 +168,7 @@ public class RegisterActivity  extends AppCompatActivity{
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-                sugarView.setText("Sugar Goal: " + progress);
+                sugarView.setText("Sugar Goal: " + progress + " g");
                 snacks.dailySugar = progress;
             }
         });
@@ -190,7 +190,7 @@ public class RegisterActivity  extends AppCompatActivity{
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-                sodView.setText("Sodium Goal: " + progress);
+                sodView.setText("Sodium Goal: " + progress + " mg");
                 snacks.dailySodium= progress;
             }
         });

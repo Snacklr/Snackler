@@ -49,17 +49,6 @@ public class MainActivity extends AppCompatActivity {
         todaysSnacks.dailySugar= 100;
         todaysSnacks.dailySodium = 600;
 
-        SnackEntry testEntry = new SnackEntry("Grape");
-        testEntry.setCalories(200);
-        testEntry.setFat(5);
-        testEntry.setCarbohydrates(75);
-        testEntry.setProtein(2);
-        testEntry.setSugar(30);
-        testEntry.setSalt(50);
-
-        todaysSnacks.addEntry(testEntry);
-
-
 
         Button logButton = (Button) findViewById(R.id.login);
 
