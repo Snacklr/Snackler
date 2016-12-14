@@ -99,7 +99,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/snackImage"
-        android:layout_marginTop="7dp"
+        android:layout_marginTop="27dp"
         android:layout_alignLeft="@+id/snackImage"
         android:textSize="18sp"
         android:id="@+id/caloriesTitle" />
@@ -110,7 +110,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/snackImage"
         android:layout_alignRight="@+id/snackImage"
-        android:layout_marginTop="7dp"
+        android:layout_marginTop="27dp"
         android:textSize="18sp"
         android:id="@+id/calories" />
 
@@ -146,7 +146,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/caloriesTitle"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="10dp"
         android:layout_alignLeft="@+id/snackImage"
         android:textSize="18sp"
         android:id="@+id/carbsTitle" />
@@ -157,7 +157,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/caloriesTitle"
         android:layout_alignRight="@+id/snackImage"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="10dp"
         android:textSize="18sp"
         android:id="@+id/carbs" />
 
@@ -183,7 +183,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/carbsTitle"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="10dp"
         android:layout_alignLeft="@+id/snackImage"
         android:textSize="18sp"
         android:id="@+id/fatTitle" />
@@ -194,7 +194,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/carbsTitle"
         android:layout_alignRight="@+id/snackImage"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="10dp"
         android:textSize="18sp"
         android:id="@+id/fat" />
 
@@ -220,7 +220,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/fatTitle"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="10dp"
         android:layout_alignLeft="@+id/snackImage"
         android:textSize="18sp"
         android:id="@+id/proteinTitle" />
@@ -231,7 +231,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/fatTitle"
         android:layout_alignRight="@+id/snackImage"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="10dp"
         android:textSize="18sp"
         android:id="@+id/protein" />
 
@@ -257,7 +257,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/proteinTitle"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="10dp"
         android:layout_alignLeft="@+id/snackImage"
         android:textSize="18sp"
         android:id="@+id/sugarTitle" />
@@ -268,7 +268,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/proteinTitle"
         android:layout_alignRight="@+id/snackImage"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="10dp"
         android:textSize="18sp"
         android:id="@+id/sugar" />
 
@@ -294,7 +294,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/sugarTitle"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="10dp"
         android:layout_alignLeft="@+id/snackImage"
         android:textSize="18sp"
         android:id="@+id/sodiumTitle" />
@@ -305,7 +305,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/sugarTitle"
         android:layout_alignRight="@id/snackImage"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="10dp"
         android:textSize="18sp"
         android:id="@+id/sodium" />
 
