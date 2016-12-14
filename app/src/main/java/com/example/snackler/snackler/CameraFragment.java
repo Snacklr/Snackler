@@ -958,7 +958,7 @@ public class CameraFragment extends Fragment
 
     private void switchPage(int pageIndex) {
         // Changes the current page
-        ViewPager viewPager = ((MainActivity)getActivity()).getViewPager();
+        ViewPager viewPager = ((ScanActivity)getActivity()).getViewPager();
         viewPager.setCurrentItem(pageIndex);
     }
 

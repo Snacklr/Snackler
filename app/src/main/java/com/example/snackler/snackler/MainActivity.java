@@ -36,15 +36,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //setContentView(R.layout.login_activity);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.login_activity);
 
-        viewPager = (ViewPager) findViewById(R.id.viewpager);
-        setupViewPager();
 
-        tabLayout = (TabLayout) findViewById(R.id.tabs);
-        tabLayout.setupWithViewPager(viewPager);
-        ToolBarSetup.setupTabIcons(tabLayout);
 
         todaysSnacks = new SnackDay(new Date(Calendar.DATE));
 
@@ -57,11 +51,28 @@ public class MainActivity extends AppCompatActivity {
         SnackEntry testEntry = new SnackEntry("Grape");
         testEntry.setCalories(500);
         testEntry.setFat(40);
-        testEntry.setCarbohydrates(255);
+        testEntry.setCarbohydrates(50);
         testEntry.setProtein(70);
         testEntry.setSugar(25);
 
         todaysSnacks.addEntry(testEntry);
+
+
+
+        Button logButton = (Button) findViewById(R.id.login);
+
+        logButton.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                startActivity(new Intent(MainActivity.this, ScanActivity.class));
+            }
+        });
+
+        Button signUpButton = (Button) findViewById(R.id.signup);
+        signUpButton.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                startActivity(new Intent(MainActivity.this, RegisterActivity.class));
+            }
+        });
     }
 
 
@@ -103,6 +114,8 @@ public class MainActivity extends AppCompatActivity {
             mFragmentList.add(fragment);
             mFragmentTitleList.add(title);
         }
+
+
 
         @Override
         public CharSequence getPageTitle(int position) {

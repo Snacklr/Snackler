@@ -114,7 +114,9 @@ public class ScanActivity extends AppCompatActivity{
         viewPager.setCurrentItem(1);
     }
 
-
+    public ViewPager getViewPager() {
+        return this.viewPager;
+    }
 
 
 
