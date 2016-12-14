@@ -19,39 +19,42 @@
         android:id="@+id/snackTitle" />
 
     <ImageView
-        android:layout_width="120dp"
+        android:layout_width="140dp"
         android:layout_height="120dp"
         android:background="#000000"
         android:padding="1dp"
         android:layout_below="@+id/snackTitle"
         android:id="@+id/snackImage" />
 
-    <TextView
-        android:text="Snack Information"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/snackTitle"
-        android:layout_marginLeft="20dp"
-        android:layout_toRightOf="@+id/snackImage"
-        android:textSize="15dp"
-        android:id="@+id/snackInfoTitle" />
+    <!--<TextView-->
+        <!--android:text="Snack Information"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_below="@+id/snackTitle"-->
+        <!--android:layout_marginLeft="20dp"-->
+        <!--android:layout_toRightOf="@+id/snackImage"-->
+        <!--android:textSize="18sp"-->
+        <!--android:id="@+id/snackInfoTitle" />-->
 
     <TextView
         android:text="Quantity:  "
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/snackInfoTitle"
-        android:layout_alignLeft="@+id/snackInfoTitle"
+        android:layout_below="@+id/snackTitle"
+        android:layout_marginLeft="20dp"
+        android:layout_toRightOf="@+id/snackImage"
         android:layout_marginTop="7dp"
+        android:textSize="22sp"
         android:id="@+id/snackQuantityTitle" />
 
     <TextView
         android:text=""
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/snackInfoTitle"
+        android:layout_below="@+id/snackTitle"
         android:layout_alignParentRight="true"
         android:layout_marginTop="7dp"
+        android:textSize="22sp"
         android:id="@+id/snackQuantity" />
 
     <TextView
@@ -59,8 +62,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/snackQuantityTitle"
-        android:layout_alignLeft="@+id/snackInfoTitle"
+        android:layout_alignLeft="@+id/snackQuantityTitle"
         android:layout_marginTop="5dp"
+        android:textSize="22sp"
         android:id="@+id/snackServingSizeTitle" />
 
     <TextView
@@ -70,25 +74,26 @@
         android:layout_below="@+id/snackQuantityTitle"
         android:layout_alignParentRight="true"
         android:layout_marginTop="5dp"
+        android:textSize="22sp"
         android:id="@+id/snackServingSize" />
 
-    <TextView
-        android:text="Time:"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/snackServingSizeTitle"
-        android:layout_alignLeft="@+id/snackInfoTitle"
-        android:layout_marginTop="5dp"
-        android:id="@+id/snackTimeTitle" />
+    <!--<TextView-->
+        <!--android:text="Time:"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_below="@+id/snackServingSizeTitle"-->
+        <!--android:layout_alignLeft="@+id/snackQuantityTitle"-->
+        <!--android:layout_marginTop="5dp"-->
+        <!--android:id="@+id/snackTimeTitle" />-->
 
-    <TextView
-        android:text=""
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/snackServingSizeTitle"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="5dp"
-        android:id="@+id/snackTime" />
+    <!--<TextView-->
+        <!--android:text=""-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_below="@+id/snackServingSizeTitle"-->
+        <!--android:layout_alignParentRight="true"-->
+        <!--android:layout_marginTop="5dp"-->
+        <!--android:id="@+id/snackTime" />-->
 
     <TextView
         android:text="Calories: "
@@ -96,8 +101,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/snackImage"
         android:layout_marginTop="7dp"
-        android:layout_alignRight="@+id/snackImage"
-        android:textSize="24sp"
+        android:layout_alignLeft="@+id/snackImage"
+        android:textSize="18sp"
         android:id="@+id/caloriesTitle" />
 
     <TextView
@@ -105,16 +110,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/snackImage"
-        android:layout_toRightOf="@+id/caloriesTitle"
+        android:layout_alignRight="@+id/snackImage"
         android:layout_marginTop="7dp"
-        android:textSize="24sp"
+        android:textSize="18sp"
         android:id="@+id/calories" />
 
     <com.example.snackler.snackler.macroBarView
         android:layout_width="200dp"
         android:layout_height="24dp"
         android:id="@+id/calorieBarView"
-        android:layout_alignLeft="@+id/snackInfoTitle"
+        android:layout_alignLeft="@+id/snackQuantityTitle"
         android:layout_alignBottom="@+id/caloriesTitle"
         android:paddingBottom="3dp"/>
 
@@ -123,7 +128,7 @@
         <!--android:layout_height="wrap_content"-->
         <!--android:src="@drawable/macro_bar"-->
         <!--android:id="@+id/calorieBar"-->
-        <!--android:layout_alignLeft="@+id/snackInfoTitle"-->
+        <!--android:layout_alignLeft="@+id/snackQuantityTitle"-->
         <!--android:layout_alignBottom="@+id/caloriesTitle"-->
         <!--android:paddingBottom="3dp"/>-->
 
@@ -143,8 +148,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/caloriesTitle"
         android:layout_marginTop="5dp"
-        android:layout_alignRight="@+id/snackImage"
-        android:textSize="24sp"
+        android:layout_alignLeft="@+id/snackImage"
+        android:textSize="18sp"
         android:id="@+id/carbsTitle" />
 
     <TextView
@@ -152,16 +157,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/caloriesTitle"
-        android:layout_toRightOf="@+id/carbsTitle"
+        android:layout_alignRight="@+id/snackImage"
         android:layout_marginTop="5dp"
-        android:textSize="24sp"
+        android:textSize="18sp"
         android:id="@+id/carbs" />
 
     <com.example.snackler.snackler.macroBarView
         android:layout_width="200dp"
         android:layout_height="24dp"
         android:id="@+id/carbsBarView"
-        android:layout_alignLeft="@+id/snackInfoTitle"
+        android:layout_alignLeft="@+id/snackQuantityTitle"
         android:layout_alignBottom="@+id/carbsTitle"
         android:paddingBottom="3dp"/>
 
@@ -170,7 +175,7 @@
         <!--android:layout_height="wrap_content"-->
         <!--android:src="@drawable/macro_bar"-->
         <!--android:id="@+id/carbBar"-->
-        <!--android:layout_alignLeft="@+id/snackInfoTitle"-->
+        <!--android:layout_alignLeft="@+id/snackQuantityTitle"-->
         <!--android:layout_alignBottom="@+id/carbsTitle"-->
         <!--android:paddingBottom="3dp"/>-->
 
@@ -180,8 +185,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/carbsTitle"
         android:layout_marginTop="5dp"
-        android:layout_alignRight="@+id/snackImage"
-        android:textSize="24sp"
+        android:layout_alignLeft="@+id/snackImage"
+        android:textSize="18sp"
         android:id="@+id/fatTitle" />
 
     <TextView
@@ -189,16 +194,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/carbsTitle"
-        android:layout_toRightOf="@+id/fatTitle"
+        android:layout_alignRight="@+id/snackImage"
         android:layout_marginTop="5dp"
-        android:textSize="24sp"
+        android:textSize="18sp"
         android:id="@+id/fat" />
 
     <com.example.snackler.snackler.macroBarView
         android:layout_width="200dp"
         android:layout_height="24dp"
         android:id="@+id/fatBarView"
-        android:layout_alignLeft="@+id/snackInfoTitle"
+        android:layout_alignLeft="@+id/snackQuantityTitle"
         android:layout_alignBottom="@+id/fatTitle"
         android:paddingBottom="3dp"/>
 
@@ -207,7 +212,7 @@
         <!--android:layout_height="wrap_content"-->
         <!--android:src="@drawable/macro_bar"-->
         <!--android:id="@+id/fatBar"-->
-        <!--android:layout_alignLeft="@+id/snackInfoTitle"-->
+        <!--android:layout_alignLeft="@+id/snackQuantityTitle"-->
         <!--android:layout_alignBottom="@+id/fatTitle"-->
         <!--android:paddingBottom="3dp"/>-->
 
@@ -217,8 +222,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/fatTitle"
         android:layout_marginTop="5dp"
-        android:layout_alignRight="@+id/snackImage"
-        android:textSize="24sp"
+        android:layout_alignLeft="@+id/snackImage"
+        android:textSize="18sp"
         android:id="@+id/proteinTitle" />
 
     <TextView
@@ -226,16 +231,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/fatTitle"
-        android:layout_toRightOf="@+id/proteinTitle"
+        android:layout_alignRight="@+id/snackImage"
         android:layout_marginTop="5dp"
-        android:textSize="24sp"
+        android:textSize="18sp"
         android:id="@+id/protein" />
 
     <com.example.snackler.snackler.macroBarView
         android:layout_width="200dp"
         android:layout_height="24dp"
         android:id="@+id/proteinBarView"
-        android:layout_alignLeft="@+id/snackInfoTitle"
+        android:layout_alignLeft="@+id/snackQuantityTitle"
         android:layout_alignBottom="@+id/proteinTitle"
         android:paddingBottom="3dp"/>
 
@@ -244,7 +249,7 @@
         <!--android:layout_height="wrap_content"-->
         <!--android:src="@drawable/macro_bar"-->
         <!--android:id="@+id/proteinBar"-->
-        <!--android:layout_alignLeft="@+id/snackInfoTitle"-->
+        <!--android:layout_alignLeft="@+id/snackQuantityTitle"-->
         <!--android:layout_alignBottom="@+id/proteinTitle"-->
         <!--android:paddingBottom="3dp"/>-->
 
@@ -254,8 +259,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/proteinTitle"
         android:layout_marginTop="5dp"
-        android:layout_alignRight="@+id/snackImage"
-        android:textSize="24sp"
+        android:layout_alignLeft="@+id/snackImage"
+        android:textSize="18sp"
         android:id="@+id/sugarTitle" />
 
     <TextView
@@ -263,15 +268,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/proteinTitle"
-        android:layout_toRightOf="@+id/sugarTitle"
-        android:textSize="24sp"
+        android:layout_alignRight="@+id/snackImage"
+        android:layout_marginTop="5dp"
+        android:textSize="18sp"
         android:id="@+id/sugar" />
 
     <com.example.snackler.snackler.macroBarView
         android:layout_width="200dp"
         android:layout_height="24dp"
         android:id="@+id/sugarBarView"
-        android:layout_alignLeft="@+id/snackInfoTitle"
+        android:layout_alignLeft="@+id/snackQuantityTitle"
         android:layout_alignBottom="@+id/sugarTitle"
         android:paddingBottom="3dp"/>
 
@@ -280,7 +286,7 @@
         <!--android:layout_height="wrap_content"-->
         <!--android:src="@drawable/macro_bar"-->
         <!--android:id="@+id/sugarBar"-->
-        <!--android:layout_alignLeft="@+id/snackInfoTitle"-->
+        <!--android:layout_alignLeft="@+id/snackQuantityTitle"-->
         <!--android:layout_alignBottom="@+id/sugarTitle"-->
         <!--android:paddingBottom="3dp"/>-->
 
@@ -290,8 +296,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/sugarTitle"
         android:layout_marginTop="5dp"
-        android:layout_alignRight="@+id/snackImage"
-        android:textSize="24sp"
+        android:layout_alignLeft="@+id/snackImage"
+        android:textSize="18sp"
         android:id="@+id/sodiumTitle" />
 
     <TextView
@@ -299,16 +305,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/sugarTitle"
-        android:layout_toRightOf="@id/sodiumTitle"
+        android:layout_alignRight="@id/snackImage"
         android:layout_marginTop="5dp"
-        android:textSize="24sp"
+        android:textSize="18sp"
         android:id="@+id/sodium" />
 
     <com.example.snackler.snackler.macroBarView
         android:layout_width="200dp"
         android:layout_height="24dp"
         android:id="@+id/sodiumBarView"
-        android:layout_alignLeft="@+id/snackInfoTitle"
+        android:layout_alignLeft="@+id/snackQuantityTitle"
         android:layout_alignBottom="@+id/sodiumTitle"
         android:paddingBottom="3dp"/>
 
@@ -317,7 +323,7 @@
         <!--android:layout_height="wrap_content"-->
         <!--android:src="@drawable/macro_bar"-->
         <!--android:id="@+id/sodiumBar"-->
-        <!--android:layout_alignLeft="@+id/snackInfoTitle"-->
+        <!--android:layout_alignLeft="@+id/snackQuantityTitle"-->
         <!--android:layout_alignBottom="@+id/sodiumTitle"-->
         <!--android:paddingBottom="3dp"/>-->
 
@@ -327,7 +333,7 @@
         android:layout_height="wrap_content"
         android:text="Rescan"
         android:layout_alignParentBottom="true"
-        android:layout_alignLeft="@+id/sodiumBarView"
+        android:layout_toLeftOf="@+id/acceptButton"
         android:id="@+id/rescanButton"
         android:onClick="onRescanClick"/>
 

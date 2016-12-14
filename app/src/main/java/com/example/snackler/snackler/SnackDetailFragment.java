@@ -32,7 +32,7 @@ public class SnackDetailFragment extends Fragment {
         ImageView imageView = (ImageView) rootView.findViewById(R.id.snackImage);
         TextView quantityView = (TextView) rootView.findViewById(R.id.snackQuantity);
         TextView servingSizeView = (TextView) rootView.findViewById(R.id.snackServingSize);
-        TextView snackTimeView = (TextView) rootView.findViewById(R.id.snackTime);
+//        TextView snackTimeView = (TextView) rootView.findViewById(R.id.snackTime);
 
         TextView calorieView = (TextView) rootView.findViewById(R.id.calories);
         TextView carbsView = (TextView) rootView.findViewById(R.id.carbs);
@@ -72,14 +72,14 @@ public class SnackDetailFragment extends Fragment {
         //imageView.setImageBitmap(fakeEntryForDemo.getImage());
         quantityView.setText(String.valueOf(fakeEntryForDemo.getQuantity())+" g");
         servingSizeView.setText(String.valueOf(fakeEntryForDemo.getServingSize()));
-        snackTimeView.setText(fakeEntryForDemo.getTimestamp().toString().substring(0,16));
+//        snackTimeView.setText(fakeEntryForDemo.getTimestamp().toString().substring(0,16));
 
-//        calorieView.setText(String.valueOf(fakeEntryForDemo.getCalories())+" cal");
-//        carbsView.setText(String.valueOf(fakeEntryForDemo.getCarbohydrates())+" g");
-//        fatView.setText(String.valueOf(fakeEntryForDemo.getFat())+" g");
-//        proteinView.setText(String.valueOf(fakeEntryForDemo.getProtein())+" g");
-//        sugarView.setText(String.valueOf(fakeEntryForDemo.getSugar())+ "g");
-//        sodiumView.setText(String.valueOf(fakeEntryForDemo.getSalt())+ "mg");
+        calorieView.setText(String.valueOf(fakeEntryForDemo.getCalories())+" cal");
+        carbsView.setText(String.valueOf(fakeEntryForDemo.getCarbohydrates())+" g");
+        fatView.setText(String.valueOf(fakeEntryForDemo.getFat())+" g");
+        proteinView.setText(String.valueOf(fakeEntryForDemo.getProtein())+" g");
+        sugarView.setText(String.valueOf(fakeEntryForDemo.getSugar())+ "g");
+        sodiumView.setText(String.valueOf(fakeEntryForDemo.getSalt())+ "mg");
 
         calorieBar.setWidth(todaysSnacks.getCalories(),fakeEntryForDemo.getCalories(),todaysSnacks.dailyCalories);
         carbsBar.setWidth(todaysSnacks.getCarbs(),fakeEntryForDemo.getCarbohydrates(),todaysSnacks.dailyCarbs);

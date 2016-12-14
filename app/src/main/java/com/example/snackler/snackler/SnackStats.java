@@ -17,6 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.github.mikephil.charting.charts.PieChart;
+import com.github.mikephil.charting.components.Description;
 import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.PieData;
@@ -249,8 +250,9 @@ public class SnackStats extends Fragment {
         pieChart.setRotationEnabled(true);
         pieChart.setHoleRadius(60f);
         pieChart.setTransparentCircleAlpha(0);
-        pieChart.setCenterText("Remaining Snack Calories");
+        pieChart.setCenterText(macroType);
         pieChart.setCenterTextSize(10);
+        pieChart.getDescription().setEnabled(false);
         pieChart.setDrawSliceText(false);
         pieChart.setTransparentCircleRadius(20f);
         //pieChart.setDrawEntryLabels(true);
@@ -258,8 +260,8 @@ public class SnackStats extends Fragment {
         //More options just check out the documentation!
 
         addDataSet();
-        TextView titleTextView = (TextView) rootView.findViewById(R.id.snackTypeTitle);
-        titleTextView.setText(macroType);
+//        TextView titleTextView = (TextView) rootView.findViewById(R.id.snackTypeTitle);
+//        titleTextView.setText(macroType);
 
         pieChart.setOnChartValueSelectedListener(new OnChartValueSelectedListener() {
             @Override

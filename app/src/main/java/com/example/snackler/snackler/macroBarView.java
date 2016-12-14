@@ -17,14 +17,13 @@ public class macroBarView extends View {
 
     Rect current = new Rect();
     Rect additional = new Rect();
-    Rect remaining = new Rect(0,0,400,48);
+    Rect remaining = new Rect(0,0,800,96);
+    Rect extra = new Rect();
 
     Paint curPaint;
     Paint newPaint;
     Paint remPaint;
-
-    int overallWidth = 200;
-
+    Paint extPaint;
 
     public macroBarView(Context context) {
         super(context);
@@ -50,16 +49,22 @@ public class macroBarView extends View {
         curPaint.setStyle(Paint.Style.FILL);
 
         newPaint = new Paint();
-        newPaint.setColor(Color.argb(255,136,196,37));
+        newPaint.setColor(Color.argb(255,190,242,2));
         newPaint.setAlpha(255);
         newPaint.setAntiAlias(true);
         newPaint.setStyle(Paint.Style.FILL);
 
         remPaint = new Paint();
-        remPaint.setColor(Color.argb(255,190,242,2));
+        remPaint.setColor(Color.argb(255,136,196,37));
         remPaint.setAlpha(255);
         remPaint.setAntiAlias(true);
         remPaint.setStyle(Paint.Style.FILL);
+
+        extPaint = new Paint();
+        extPaint.setColor(Color.argb(255,200,50,50));
+        extPaint.setAlpha(255);
+        extPaint.setAntiAlias(true);
+        extPaint.setStyle(Paint.Style.FILL);
     }
 
     @Override
@@ -69,28 +74,49 @@ public class macroBarView extends View {
         canvas.drawRect(current,curPaint);
         canvas.drawRect(remaining,remPaint);
         canvas.drawRect(additional,newPaint);
+        canvas.drawRect(extra,extPaint);
 
     }
 
     public void setWidth(float curWidth, float newWidth, float totWidth) {
 
-        int width = 800;
+        int width = 700;
         int height = 96;
 
-        Log.i("Width:", String.valueOf(width));
-        Log.i("Height:", String.valueOf(height));
+        if ((curWidth + newWidth) < totWidth) {
 
-        int curScaled = (int) ((curWidth/totWidth)*0.75f*width);
-        int newScaled = (int) ((newWidth/totWidth)*0.75f*width);
-        int remScaled = (int) (0.75f*width);
+            Log.i("Width:", String.valueOf(width));
+            Log.i("Height:", String.valueOf(height));
 
-        Log.i("curScaled:", String.valueOf(curScaled));
-        Log.i("newScaled:", String.valueOf(newScaled));
-        Log.i("remScaled:", String.valueOf(remScaled));
+            int curScaled = (int) ((curWidth / totWidth) * 0.75f * width);
+            int newScaled = (int) ((newWidth / totWidth) * 0.75f * width);
+            int remScaled = (int) (0.75f * width);
 
-        current = new Rect(0,0,curScaled,height);
-        additional = new Rect(curScaled,0,curScaled+newScaled,height);
-        remaining = new Rect(curScaled,0,remScaled,height);
+            Log.i("curScaled:", String.valueOf(curScaled));
+            Log.i("newScaled:", String.valueOf(newScaled));
+            Log.i("remScaled:", String.valueOf(remScaled));
+
+            current = new Rect(0, 0, curScaled, height);
+            additional = new Rect(curScaled, 0, curScaled + newScaled, height);
+            remaining = new Rect(curScaled, 0, remScaled, height);
+
+            remPaint.setAlpha(255);
+            extPaint.setAlpha(0);
+
+        } else {
+
+            int curScaled = (int) ((curWidth / totWidth) * 0.75f * width);
+            int newScaled = (int) ((newWidth / totWidth) * 0.75f * width);
+            int extraStart = (int) (0.75f * width);
+
+            current = new Rect(0, 0, curScaled, height);
+            additional = new Rect(curScaled, 0, curScaled + newScaled, height);
+            extra = new Rect(extraStart,0,curScaled + newScaled,height);
+
+            remPaint.setAlpha(0);
+            extPaint.setAlpha(255);
+
+        }
 
         invalidate();
     }
