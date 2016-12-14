@@ -15,7 +15,7 @@
       android:layout_height="wrap_content"
       android:id="@+id/Date"
       android:layout_alignParentTop="true"
-      android:text="Tuesday, December 13,2016"
+      android:text="Tuesday, December 14, 2016"
       android:textAppearance="@style/TextAppearance.AppCompat.Large"
       android:layout_alignParentEnd="true"
       android:gravity="center"
