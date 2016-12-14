@@ -72,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getFragmentManager());
 
         adapter.addFrag(new SnackStats(), "Progress");
-        adapter.addFrag(new CameraFragment(), "Home");
+        adapter.addFrag(new CameraFragment(), "Scan");
         adapter.addFrag(new SnackDetailFragment(), "Recent");
         viewPager.setAdapter(adapter);
     }
