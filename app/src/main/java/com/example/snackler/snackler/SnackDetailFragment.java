@@ -62,15 +62,15 @@ public class SnackDetailFragment extends Fragment {
         macroBarView sugarBar = (macroBarView) rootView.findViewById(R.id.sugarBarView);
         macroBarView sodiumBar = (macroBarView) rootView.findViewById(R.id.sodiumBarView);
 
-        final SnackEntry fakeEntryForDemo = new SnackEntry("Pistachios");
-        fakeEntryForDemo.setQuantity(28);
+        final SnackEntry fakeEntryForDemo = new SnackEntry("Apple");
+        fakeEntryForDemo.setQuantity(223);
         fakeEntryForDemo.setServingSize(1);
-        fakeEntryForDemo.setCalories(159);
-        fakeEntryForDemo.setCarbohydrates(8);
-        fakeEntryForDemo.setFat(13);
-        fakeEntryForDemo.setProtein(6);
-        fakeEntryForDemo.setSugar(2);
-        fakeEntryForDemo.setSalt(20);
+        fakeEntryForDemo.setCalories(116);
+        fakeEntryForDemo.setCarbohydrates(31);
+        fakeEntryForDemo.setFat(1);
+        fakeEntryForDemo.setProtein(2);
+        fakeEntryForDemo.setSugar(23);
+        fakeEntryForDemo.setSalt(2);
 
         //String grapeImageURL = "http://www.tpswinegrapes.com/images/660/images//white-grapes.jpg";
         String grapeImageURL = "http://www.trail-running-blog.com/wp-content/uploads/2013/03/pistachios.jpg";

@@ -19,7 +19,9 @@
       android:textAppearance="@style/TextAppearance.AppCompat.Large"
       android:layout_alignParentEnd="true"
       android:gravity="center"
-      android:layout_alignParentStart="true" />
+      android:layout_alignParentStart="true"
+      android:layout_marginBottom="40dp"
+      android:layout_marginTop="30dp"/>
 
   <!--<TextView-->
       <!--android:text="Calories"-->
@@ -47,9 +49,8 @@
       android:id="@+id/Carbs"
       android:textAppearance="@android:style/TextAppearance.Material.Small"
       style="@style/Widget.AppCompat.Button.Small"
-      android:layout_alignBaseline="@+id/Protein"
-      android:layout_alignBottom="@+id/Protein"
-      android:layout_alignParentStart="true" />
+      android:layout_alignParentBottom="true"
+      android:layout_toEndOf="@+id/Calories" />
 
   <Button
       android:text="Sugar"
@@ -57,10 +58,9 @@
       android:layout_height="wrap_content"
       android:id="@+id/Sugar"
       android:textAppearance="@android:style/TextAppearance.Material.Small"
-      android:layout_marginBottom="27dp"
       style="@style/Widget.AppCompat.Button.Small"
       android:layout_alignParentBottom="true"
-      android:layout_alignParentEnd="true" />
+      android:layout_toEndOf="@+id/Carbs" />
 
   <Button
       android:text="Calories"
@@ -69,9 +69,8 @@
       android:id="@+id/Calories"
       android:textAppearance="@android:style/TextAppearance.Material.Small"
       style="@style/Widget.AppCompat.Button.Small"
-      android:layout_alignBaseline="@+id/Carbs"
-      android:layout_alignBottom="@+id/Carbs"
-      android:layout_toEndOf="@+id/Carbs" />
+      android:layout_alignParentBottom="true"
+      android:layout_centerInParent="true" />
 
   <Button
       android:text="Protein"
@@ -80,9 +79,8 @@
       android:id="@+id/Protein"
       android:textAppearance="@android:style/TextAppearance.Material.Small"
       style="@style/Widget.AppCompat.Button.Small"
-      android:layout_alignBaseline="@+id/Sugar"
-      android:layout_alignBottom="@+id/Sugar"
-      android:layout_toStartOf="@+id/Sugar" />
+      android:layout_alignParentBottom="true"
+      android:layout_toStartOf="@+id/Fat" />
 
   <Button
       android:text="Fat"
@@ -91,9 +89,8 @@
       android:id="@+id/Fat"
       android:textAppearance="@android:style/TextAppearance.Material.Small"
       style="@style/Widget.AppCompat.Button.Small"
-      android:layout_alignBaseline="@+id/Protein"
-      android:layout_alignBottom="@+id/Protein"
-      android:layout_centerHorizontal="true" />
+      android:layout_alignParentBottom="true"
+      android:layout_toStartOf="@+id/Calories" />
 
   <TextView
       android:text="20%"
@@ -103,8 +100,8 @@
       android:textStyle="normal|bold"
       android:textColor="@color/black"
       android:layout_above="@+id/Sugar"
-      android:layout_alignParentEnd="true"
-      android:layout_marginEnd="15dp" />
+      android:layout_alignLeft="@+id/Sugar"
+      android:layout_marginStart="20dp" />
 
   <TextView
       android:text="19%"
@@ -114,7 +111,8 @@
       android:textStyle="normal|bold"
       android:textColor="@color/black"
       android:layout_above="@+id/Fat"
-      android:layout_centerHorizontal="true" />
+      android:layout_alignLeft="@+id/Fat"
+      android:layout_marginStart="15dp"/>
 
   <TextView
       android:text="19%"
@@ -124,8 +122,8 @@
       android:textStyle="normal|bold"
       android:textColor="@color/black"
       android:layout_above="@+id/Calories"
-      android:layout_toEndOf="@+id/Carbs"
-      android:layout_marginStart="20dp" />
+      android:layout_alignLeft="@+id/Calories"
+      android:layout_marginStart="30dp"/>
 
   <TextView
       android:text="19%"
@@ -135,8 +133,8 @@
       android:textStyle="normal|bold"
       android:textColor="@color/black"
       android:layout_above="@+id/Carbs"
-      android:layout_alignParentStart="true"
-      android:layout_marginStart="16dp" />
+      android:layout_alignLeft="@+id/Carbs"
+      android:layout_marginStart="22dp" />
 
   <TextView
       android:text="17%"
@@ -146,7 +144,7 @@
       android:textStyle="normal|bold"
       android:textColor="@color/black"
       android:layout_above="@+id/Protein"
-      android:layout_toStartOf="@+id/Sugar"
-      android:layout_marginEnd="21dp" />
+      android:layout_alignLeft="@+id/Protein"
+      android:layout_marginStart="26dp" />
 
 </RelativeLayout>

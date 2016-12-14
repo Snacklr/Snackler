@@ -251,7 +251,7 @@ public class SnackStats extends Fragment {
         pieChart.setHoleRadius(60f);
         pieChart.setTransparentCircleAlpha(0);
         pieChart.setCenterText(macroType);
-        pieChart.setCenterTextSize(10);
+        pieChart.setCenterTextSize(15);
         pieChart.getDescription().setEnabled(false);
         pieChart.setDrawSliceText(false);
         pieChart.setTransparentCircleRadius(20f);
