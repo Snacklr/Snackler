@@ -7,11 +7,14 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 
 public class SnackDetailFragment extends Fragment {
+
+    private static SnackDay todaysSnacks;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -22,6 +25,8 @@ public class SnackDetailFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View rootView = inflater.inflate(R.layout.activity_snack_detail, container, false);
+
+        todaysSnacks = MainActivity.getDayObject();
 
         TextView snackTitleView = (TextView) rootView.findViewById(R.id.snackTitle);
         ImageView imageView = (ImageView) rootView.findViewById(R.id.snackImage);
@@ -36,7 +41,7 @@ public class SnackDetailFragment extends Fragment {
         TextView sugarView = (TextView) rootView.findViewById(R.id.sugar);
         TextView sodiumView = (TextView) rootView.findViewById(R.id.sodium);
 
-        SnackEntry fakeEntryForDemo = new SnackEntry("Grapes");
+        final SnackEntry fakeEntryForDemo = new SnackEntry("Pistachios");
         fakeEntryForDemo.setQuantity(50);
         fakeEntryForDemo.setServingSize(1.3);
         fakeEntryForDemo.setCalories(200);
@@ -46,9 +51,9 @@ public class SnackDetailFragment extends Fragment {
         fakeEntryForDemo.setSugar(20);
         fakeEntryForDemo.setSalt(100);
 
-        String grapeImageURL = "http://www.tpswinegrapes.com/images/660/images//white-grapes.jpg";
-
-
+        //String grapeImageURL = "http://www.tpswinegrapes.com/images/660/images//white-grapes.jpg";
+        String grapeImageURL = "http://www.trail-running-blog.com/wp-content/uploads/2013/03/pistachios.jpg";
+        
         snackTitleView.setText(fakeEntryForDemo.getSnackType());
         //imageView.setImageBitmap(fakeEntryForDemo.getImage());
         quantityView.setText(String.valueOf(fakeEntryForDemo.getQuantity())+" g");
@@ -62,6 +67,15 @@ public class SnackDetailFragment extends Fragment {
         sugarView.setText(String.valueOf(fakeEntryForDemo.getSugar())+ "g");
         sodiumView.setText(String.valueOf(fakeEntryForDemo.getSalt())+ "mg");
 
+        Button acceptButton = (Button) rootView.findViewById(R.id.acceptButton);
+
+        acceptButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                todaysSnacks.addEntry(fakeEntryForDemo);
+                MainActivity.onAcceptClick(view);
+            }
+        });
 
         return rootView;
 

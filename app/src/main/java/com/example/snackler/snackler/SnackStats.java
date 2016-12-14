@@ -88,6 +88,7 @@ public class SnackStats extends Fragment {
         rootView =  inflater.inflate(R.layout.activity_stats, container, false);
         pieChart = (PieChart) rootView.findViewById(R.id.idPieChart);
 
+        System.err.println("working");
         init();
         calorieButtonPressed();
 
@@ -176,23 +177,14 @@ public class SnackStats extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
        super.onCreate(savedInstanceState);
-
     }
 
-
     public void init(){
-
         data = MainActivity.getDayObject();
-
-
         Log.d(TAG, "onCreate: starting to create chart");
-
-
-
     }
 
     public void calorieButtonPressed(){
-
         float used = data.getCalories();
         float remaining = data.dailyCalories - used;
 
@@ -203,7 +195,6 @@ public class SnackStats extends Fragment {
         System.err.println("STARTING CALORE: " + (data.getCalories() / data.dailySugar) * 100);
         setUpChart("Calories");
     }
-
 
     public void carbButtonPressed(){
 
