@@ -41,6 +41,20 @@ public class SnackDetailFragment extends Fragment {
         TextView sugarView = (TextView) rootView.findViewById(R.id.sugar);
         TextView sodiumView = (TextView) rootView.findViewById(R.id.sodium);
 
+//        ImageView oldCalorieBar = (ImageView) rootView.findViewById(R.id.calorieBar);
+//        ImageView oldCarbsBar = (ImageView) rootView.findViewById(R.id.carbBar);
+//        ImageView oldFatBar = (ImageView) rootView.findViewById(R.id.fatBar);
+//        ImageView oldProteinBar = (ImageView) rootView.findViewById(R.id.proteinBar);
+//        ImageView oldSugarBar = (ImageView) rootView.findViewById(R.id.sugarBar);
+//        ImageView oldSodiumBar = (ImageView) rootView.findViewById(R.id.sodiumBar);
+
+        macroBarView calorieBar = (macroBarView) rootView.findViewById(R.id.calorieBarView);
+        macroBarView carbsBar = (macroBarView) rootView.findViewById(R.id.carbsBarView);
+        macroBarView fatBar = (macroBarView) rootView.findViewById(R.id.fatBarView);
+        macroBarView proteinBar = (macroBarView) rootView.findViewById(R.id.proteinBarView);
+        macroBarView sugarBar = (macroBarView) rootView.findViewById(R.id.sugarBarView);
+        macroBarView sodiumBar = (macroBarView) rootView.findViewById(R.id.sodiumBarView);
+
         final SnackEntry fakeEntryForDemo = new SnackEntry("Pistachios");
         fakeEntryForDemo.setQuantity(50);
         fakeEntryForDemo.setServingSize(1.3);
@@ -60,12 +74,19 @@ public class SnackDetailFragment extends Fragment {
         servingSizeView.setText(String.valueOf(fakeEntryForDemo.getServingSize()));
         snackTimeView.setText(fakeEntryForDemo.getTimestamp().toString().substring(0,16));
 
-        calorieView.setText(String.valueOf(fakeEntryForDemo.getCalories())+" cal");
-        carbsView.setText(String.valueOf(fakeEntryForDemo.getCarbohydrates())+" g");
-        fatView.setText(String.valueOf(fakeEntryForDemo.getFat())+" g");
-        proteinView.setText(String.valueOf(fakeEntryForDemo.getProtein())+" g");
-        sugarView.setText(String.valueOf(fakeEntryForDemo.getSugar())+ "g");
-        sodiumView.setText(String.valueOf(fakeEntryForDemo.getSalt())+ "mg");
+//        calorieView.setText(String.valueOf(fakeEntryForDemo.getCalories())+" cal");
+//        carbsView.setText(String.valueOf(fakeEntryForDemo.getCarbohydrates())+" g");
+//        fatView.setText(String.valueOf(fakeEntryForDemo.getFat())+" g");
+//        proteinView.setText(String.valueOf(fakeEntryForDemo.getProtein())+" g");
+//        sugarView.setText(String.valueOf(fakeEntryForDemo.getSugar())+ "g");
+//        sodiumView.setText(String.valueOf(fakeEntryForDemo.getSalt())+ "mg");
+
+        calorieBar.setWidth(todaysSnacks.getCalories(),fakeEntryForDemo.getCalories(),todaysSnacks.dailyCalories);
+        carbsBar.setWidth(todaysSnacks.getCarbs(),fakeEntryForDemo.getCarbohydrates(),todaysSnacks.dailyCarbs);
+        fatBar.setWidth(todaysSnacks.getFat(),fakeEntryForDemo.getFat(),todaysSnacks.dailyFat);
+        proteinBar.setWidth(todaysSnacks.getProtein(),fakeEntryForDemo.getProtein(),todaysSnacks.dailyProtein);
+        sugarBar.setWidth(todaysSnacks.getSugar(),fakeEntryForDemo.getSugar(),todaysSnacks.dailySugar);
+        sodiumBar.setWidth(todaysSnacks.getSodium(),fakeEntryForDemo.getSalt(),todaysSnacks.dailySodium);
 
         Button acceptButton = (Button) rootView.findViewById(R.id.acceptButton);
 

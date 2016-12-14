@@ -4,7 +4,7 @@
     android:id="@+id/activity_snack_detail"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingBottom="10dp"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
@@ -15,7 +15,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="30dp"
-        android:layout_marginBottom="25dp"
+        android:layout_marginBottom="20dp"
         android:id="@+id/snackTitle" />
 
     <ImageView
@@ -37,7 +37,7 @@
         android:id="@+id/snackInfoTitle" />
 
     <TextView
-        android:text="Snack Quantity:  "
+        android:text="Quantity:  "
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/snackInfoTitle"
@@ -50,12 +50,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/snackInfoTitle"
-        android:layout_toRightOf="@+id/snackQuantityTitle"
+        android:layout_alignParentRight="true"
         android:layout_marginTop="7dp"
         android:id="@+id/snackQuantity" />
 
     <TextView
-        android:text="Serving Size:   "
+        android:text="Servings:   "
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/snackQuantityTitle"
@@ -68,12 +68,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/snackQuantityTitle"
-        android:layout_toRightOf="@+id/snackServingSizeTitle"
+        android:layout_alignParentRight="true"
         android:layout_marginTop="5dp"
         android:id="@+id/snackServingSize" />
 
     <TextView
-        android:text="Time Consumed:"
+        android:text="Time:"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/snackServingSizeTitle"
@@ -85,44 +85,66 @@
         android:text=""
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/snackTimeTitle"
-        android:layout_alignLeft="@+id/snackInfoTitle"
+        android:layout_below="@+id/snackServingSizeTitle"
+        android:layout_alignParentRight="true"
         android:layout_marginTop="5dp"
         android:id="@+id/snackTime" />
-
-
-    <TextView
-        android:text="Nutrition Info:"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/snackImage"
-        android:layout_marginTop="7dp"
-        android:textSize="15dp"
-        android:id="@+id/nutritionInfoTitle" />
 
     <TextView
         android:text="Calories: "
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/nutritionInfoTitle"
+        android:layout_below="@+id/snackImage"
         android:layout_marginTop="7dp"
+        android:layout_alignRight="@+id/snackImage"
+        android:textSize="24sp"
         android:id="@+id/caloriesTitle" />
 
     <TextView
         android:text=""
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/nutritionInfoTitle"
+        android:layout_below="@id/snackImage"
         android:layout_toRightOf="@+id/caloriesTitle"
         android:layout_marginTop="7dp"
+        android:textSize="24sp"
         android:id="@+id/calories" />
 
+    <com.example.snackler.snackler.macroBarView
+        android:layout_width="200dp"
+        android:layout_height="24dp"
+        android:id="@+id/calorieBarView"
+        android:layout_alignLeft="@+id/snackInfoTitle"
+        android:layout_alignBottom="@+id/caloriesTitle"
+        android:paddingBottom="3dp"/>
+
+    <!--<ImageView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:src="@drawable/macro_bar"-->
+        <!--android:id="@+id/calorieBar"-->
+        <!--android:layout_alignLeft="@+id/snackInfoTitle"-->
+        <!--android:layout_alignBottom="@+id/caloriesTitle"-->
+        <!--android:paddingBottom="3dp"/>-->
+
+    <!--<ImageView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:src="@drawable/macro_bar"-->
+        <!--android:id="@+id/newCalorieBar"-->
+        <!--android:layout_toRightOf="@+id/calorieBar"-->
+        <!--android:layout_alignBottom="@+id/caloriesTitle"-->
+        <!--android:paddingBottom="3dp"-->
+        <!--/>-->
+
     <TextView
-        android:text="Carbohydrates: "
+        android:text="Carbs: "
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/caloriesTitle"
         android:layout_marginTop="5dp"
+        android:layout_alignRight="@+id/snackImage"
+        android:textSize="24sp"
         android:id="@+id/carbsTitle" />
 
     <TextView
@@ -132,7 +154,25 @@
         android:layout_below="@+id/caloriesTitle"
         android:layout_toRightOf="@+id/carbsTitle"
         android:layout_marginTop="5dp"
+        android:textSize="24sp"
         android:id="@+id/carbs" />
+
+    <com.example.snackler.snackler.macroBarView
+        android:layout_width="200dp"
+        android:layout_height="24dp"
+        android:id="@+id/carbsBarView"
+        android:layout_alignLeft="@+id/snackInfoTitle"
+        android:layout_alignBottom="@+id/carbsTitle"
+        android:paddingBottom="3dp"/>
+
+    <!--<ImageView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:src="@drawable/macro_bar"-->
+        <!--android:id="@+id/carbBar"-->
+        <!--android:layout_alignLeft="@+id/snackInfoTitle"-->
+        <!--android:layout_alignBottom="@+id/carbsTitle"-->
+        <!--android:paddingBottom="3dp"/>-->
 
     <TextView
         android:text="Fat: "
@@ -140,6 +180,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/carbsTitle"
         android:layout_marginTop="5dp"
+        android:layout_alignRight="@+id/snackImage"
+        android:textSize="24sp"
         android:id="@+id/fatTitle" />
 
     <TextView
@@ -149,7 +191,25 @@
         android:layout_below="@+id/carbsTitle"
         android:layout_toRightOf="@+id/fatTitle"
         android:layout_marginTop="5dp"
+        android:textSize="24sp"
         android:id="@+id/fat" />
+
+    <com.example.snackler.snackler.macroBarView
+        android:layout_width="200dp"
+        android:layout_height="24dp"
+        android:id="@+id/fatBarView"
+        android:layout_alignLeft="@+id/snackInfoTitle"
+        android:layout_alignBottom="@+id/fatTitle"
+        android:paddingBottom="3dp"/>
+
+    <!--<ImageView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:src="@drawable/macro_bar"-->
+        <!--android:id="@+id/fatBar"-->
+        <!--android:layout_alignLeft="@+id/snackInfoTitle"-->
+        <!--android:layout_alignBottom="@+id/fatTitle"-->
+        <!--android:paddingBottom="3dp"/>-->
 
     <TextView
         android:text="Protein: "
@@ -157,6 +217,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/fatTitle"
         android:layout_marginTop="5dp"
+        android:layout_alignRight="@+id/snackImage"
+        android:textSize="24sp"
         android:id="@+id/proteinTitle" />
 
     <TextView
@@ -166,13 +228,34 @@
         android:layout_below="@+id/fatTitle"
         android:layout_toRightOf="@+id/proteinTitle"
         android:layout_marginTop="5dp"
+        android:textSize="24sp"
         android:id="@+id/protein" />
+
+    <com.example.snackler.snackler.macroBarView
+        android:layout_width="200dp"
+        android:layout_height="24dp"
+        android:id="@+id/proteinBarView"
+        android:layout_alignLeft="@+id/snackInfoTitle"
+        android:layout_alignBottom="@+id/proteinTitle"
+        android:paddingBottom="3dp"/>
+
+    <!--<ImageView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:src="@drawable/macro_bar"-->
+        <!--android:id="@+id/proteinBar"-->
+        <!--android:layout_alignLeft="@+id/snackInfoTitle"-->
+        <!--android:layout_alignBottom="@+id/proteinTitle"-->
+        <!--android:paddingBottom="3dp"/>-->
 
     <TextView
         android:text="Sugar: "
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/proteinTitle"
+        android:layout_marginTop="5dp"
+        android:layout_alignRight="@+id/snackImage"
+        android:textSize="24sp"
         android:id="@+id/sugarTitle" />
 
     <TextView
@@ -181,8 +264,25 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/proteinTitle"
         android:layout_toRightOf="@+id/sugarTitle"
-        android:layout_marginTop="5dp"
+        android:textSize="24sp"
         android:id="@+id/sugar" />
+
+    <com.example.snackler.snackler.macroBarView
+        android:layout_width="200dp"
+        android:layout_height="24dp"
+        android:id="@+id/sugarBarView"
+        android:layout_alignLeft="@+id/snackInfoTitle"
+        android:layout_alignBottom="@+id/sugarTitle"
+        android:paddingBottom="3dp"/>
+
+    <!--<ImageView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:src="@drawable/macro_bar"-->
+        <!--android:id="@+id/sugarBar"-->
+        <!--android:layout_alignLeft="@+id/snackInfoTitle"-->
+        <!--android:layout_alignBottom="@+id/sugarTitle"-->
+        <!--android:paddingBottom="3dp"/>-->
 
     <TextView
         android:text="Sodium: "
@@ -190,6 +290,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/sugarTitle"
         android:layout_marginTop="5dp"
+        android:layout_alignRight="@+id/snackImage"
+        android:textSize="24sp"
         android:id="@+id/sodiumTitle" />
 
     <TextView
@@ -199,15 +301,33 @@
         android:layout_below="@+id/sugarTitle"
         android:layout_toRightOf="@id/sodiumTitle"
         android:layout_marginTop="5dp"
+        android:textSize="24sp"
         android:id="@+id/sodium" />
+
+    <com.example.snackler.snackler.macroBarView
+        android:layout_width="200dp"
+        android:layout_height="24dp"
+        android:id="@+id/sodiumBarView"
+        android:layout_alignLeft="@+id/snackInfoTitle"
+        android:layout_alignBottom="@+id/sodiumTitle"
+        android:paddingBottom="3dp"/>
+
+    <!--<ImageView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:src="@drawable/macro_bar"-->
+        <!--android:id="@+id/sodiumBar"-->
+        <!--android:layout_alignLeft="@+id/snackInfoTitle"-->
+        <!--android:layout_alignBottom="@+id/sodiumTitle"-->
+        <!--android:paddingBottom="3dp"/>-->
 
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Rescan"
-        android:layout_alignParentTop="true"
-        android:layout_toLeftOf="@+id/acceptButton"
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/sodiumBarView"
         android:id="@+id/rescanButton"
         android:onClick="onRescanClick"/>
 
@@ -215,7 +335,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Accept"
-        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:id="@+id/acceptButton"/>
 
