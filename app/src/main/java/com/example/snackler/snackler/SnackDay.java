@@ -39,12 +39,12 @@ public class SnackDay {
     private int numSugar;
     private int numSodium;
 
-    public int dailyCalories;
-    public int dailyCarbs;
-    public int dailyProtein;
-    public int dailyFat;
-    public int dailySugar;
-    public int dailySodium;
+    public float dailyCalories;
+    public float dailyCarbs;
+    public float dailyProtein;
+    public float dailyFat;
+    public float dailySugar;
+    public float dailySodium;
 
 
 
@@ -90,6 +90,15 @@ public class SnackDay {
     public void removeEntry(SnackEntry entry){
         entries.remove(entry);
         numEntries--;
+    }
+
+    public SnackEntry getEntry(String name){
+        for(SnackEntry e: entries){
+            if(e.getSnackType().equals(name)){
+                return e;
+            }
+        }
+        return null;
     }
 
     public NutritionInfo loadData(){

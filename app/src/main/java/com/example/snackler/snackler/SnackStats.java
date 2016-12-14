@@ -6,6 +6,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -34,6 +38,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import com.example.snackler.snackler.ToolBarSetup;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -54,8 +60,21 @@ public class SnackStats extends Fragment {
     private String[] xData = {"Remaining", "Used"};
     PieChart pieChart ;
     SnackDay data;
-
+    private View menuInflater;
     View rootView;
+    TextView calorieText;
+    TextView fatText;
+    TextView carbsText;
+    TextView proteinText;
+    TextView sugarText;
+    float caloriePercentage;
+    float fatPercentage;
+    float carbsPercentage;
+    float proteinPercentage;
+    float sugarPercentage;
+
+
+
 
     public SnackStats() {
         // Required empty public constructor
@@ -70,15 +89,81 @@ public class SnackStats extends Fragment {
         pieChart = (PieChart) rootView.findViewById(R.id.idPieChart);
 
         System.err.println("working");
-
         init();
         calorieButtonPressed();
 
-        final Button button = (Button) rootView.findViewById(R.id.Fat);
-        button.setOnClickListener(new View.OnClickListener() {
+
+        calorieText = (TextView) rootView.findViewById(R.id.caloriesPer);
+        fatText = (TextView) rootView.findViewById(R.id.fatPer);
+        carbsText = (TextView) rootView.findViewById(R.id.carbsPer);
+        proteinText = (TextView) rootView.findViewById(R.id.proteinPer);
+        sugarText = (TextView) rootView.findViewById(R.id.sugarPer);
+
+
+        caloriePercentage = (data.getCalories() / data.dailyCalories) * 100;
+        fatPercentage = (data.getFat() / data.dailyFat) * 100;
+        carbsPercentage = (data.getCarbs() / data.dailyCarbs) * 100;
+        proteinPercentage = (data.getProtein() / data.dailyProtein) * 100;
+        sugarPercentage = (data.getSugar() / data.dailySugar) * 100;
+
+        System.err.println("Calorie Percentage: " + caloriePercentage);
+        if(data.getCalories() == 0 && data.getFat() == 0 && data.getCarbs() == 0
+                && data.getProtein() == 0 && data.getSugar() == 0){
+            calorieText.setText(0 + "%");
+            fatText.setText(0 + "%");
+            carbsText.setText(0 + "%");
+            proteinText.setText(0 + "%");
+            sugarText.setText(0 + "%");
+        } else{
+            calorieText.setText(Math.round(caloriePercentage) + "%");
+            fatText.setText(Math.round(fatPercentage) + "%");
+            carbsText.setText(Math.round(carbsPercentage) + "%");
+            proteinText.setText(Math.round(proteinPercentage) + "%");
+            sugarText.setText(Math.round(sugarPercentage) + "%");
+        }
+
+
+
+
+
+
+        final Button calorieButton = (Button) rootView.findViewById(R.id.Calories);
+        calorieButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                System.err.println("button pressed");
+                calorieButtonPressed();
+            }
+        });
+
+        final Button fatButton = (Button) rootView.findViewById(R.id.Fat);
+        fatButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 System.err.println("button pressed");
                 fatButtonPressed();
+            }
+        });
+
+        final Button carbButton = (Button) rootView.findViewById(R.id.Carbs);
+        carbButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                System.err.println("button pressed");
+                carbButtonPressed();
+            }
+        });
+
+        final Button proteinButton = (Button) rootView.findViewById(R.id.Protein);
+        proteinButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                System.err.println("button pressed");
+                proteinButtonPressed();
+            }
+        });
+
+        final Button sugarButton = (Button) rootView.findViewById(R.id.Sugar);
+        sugarButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                System.err.println("button pressed");
+                sugarButtonPressed();
             }
         });
 
@@ -87,29 +172,19 @@ public class SnackStats extends Fragment {
 
     }
 
+
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
        super.onCreate(savedInstanceState);
-
     }
 
-
     public void init(){
-
         data = MainActivity.getDayObject();
-
-
         Log.d(TAG, "onCreate: starting to create chart");
-
-
-
-
-
-
     }
 
     public void calorieButtonPressed(){
-
         float used = data.getCalories();
         float remaining = data.dailyCalories - used;
 
@@ -117,9 +192,45 @@ public class SnackStats extends Fragment {
         yData[0] = remaining;
         yData[1] = used;
 
+        System.err.println("STARTING CALORE: " + (data.getCalories() / data.dailySugar) * 100);
         setUpChart("Calories");
     }
 
+    public void carbButtonPressed(){
+
+        float used = data.getCarbs();
+        float remaining = data.dailyCarbs - used;
+
+        yData = new float[2];
+        yData[0] = remaining;
+        yData[1] = used;
+
+        setUpChart("Carbs");
+    }
+
+    public void proteinButtonPressed(){
+
+        float used = data.getProtein();
+        float remaining = data.dailyProtein - used;
+
+        yData = new float[2];
+        yData[0] = remaining;
+        yData[1] = used;
+
+        setUpChart("Protein");
+    }
+
+    public void sugarButtonPressed(){
+
+        float used = data.getSugar();
+        float remaining = data.dailySugar - used;
+
+        yData = new float[2];
+        yData[0] = remaining;
+        yData[1] = used;
+
+        setUpChart("Sugar");
+    }
 
     public void fatButtonPressed(){
 
