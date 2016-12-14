@@ -91,6 +91,8 @@ public class CameraFragment extends Fragment
     private static final int REQUEST_CAMERA_PERMISSION = 1;
     private static final String FRAGMENT_DIALOG = "dialog";
 
+    private static int picsTaken = 0;
+
     static {
         ORIENTATIONS.append(Surface.ROTATION_0, 90);
         ORIENTATIONS.append(Surface.ROTATION_90, 0);
@@ -845,7 +847,7 @@ public class CameraFragment extends Fragment
                 public void onCaptureCompleted(@NonNull CameraCaptureSession session,
                                                @NonNull CaptureRequest request,
                                                @NonNull TotalCaptureResult result) {
-                    showToast("Saved: " + mFile);
+//                    showToast("Saved: " + mFile);
                     Log.d(TAG, mFile.toString());
                     unlockFocus();
                 }
@@ -906,6 +908,7 @@ public class CameraFragment extends Fragment
                     ImageButton imageButton = (ImageButton) getView().findViewById(R.id.imageViewScanIndicator);
                     imageButton.setVisibility(View.GONE);
                     switchPage(2);
+                    ((ScanActivity)getActivity()).setNewSnackEntry(true);
                     _isSecondTap = false;
                 } else {
                     button.setText("Continue");

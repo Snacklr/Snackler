@@ -21,7 +21,6 @@
     <ImageView
         android:layout_width="140dp"
         android:layout_height="120dp"
-        android:background="#000000"
         android:padding="1dp"
         android:layout_below="@+id/snackTitle"
         android:id="@+id/snackImage" />
@@ -334,8 +333,7 @@
         android:text="Rescan"
         android:layout_alignParentBottom="true"
         android:layout_toLeftOf="@+id/acceptButton"
-        android:id="@+id/rescanButton"
-        android:onClick="onRescanClick"/>
+        android:id="@+id/rescanButton"/>
 
     <Button
         android:layout_width="wrap_content"

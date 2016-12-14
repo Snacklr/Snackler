@@ -17,6 +17,7 @@ import com.github.mikephil.charting.charts.PieChart;
 import android.view.View;
 import android.widget.Button;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,6 +32,7 @@ public class ScanActivity extends AppCompatActivity{
     private Toolbar toolbar;
     public TabLayout tabLayout;
     public static ViewPager viewPager;
+    private boolean newSnackEntry;
 
 
 
@@ -47,6 +49,7 @@ public class ScanActivity extends AppCompatActivity{
         tabLayout.setupWithViewPager(viewPager);
         ToolBarSetup.setupTabIcons(tabLayout);
 
+        newSnackEntry = false;
 
         // Button scanButton = (Button) findViewById(R.id.scanItemButton);
        /* scanButton.setOnClickListener(new View.OnClickListener() {
@@ -105,12 +108,18 @@ public class ScanActivity extends AppCompatActivity{
         }
     }
 
+    public void setNewSnackEntry(Boolean bool) {
+        newSnackEntry = bool;
+    }
 
+    public boolean getNewSnackEntry() {
+        return newSnackEntry;
+    }
 
     public static void onAcceptClick(View v) {viewPager.setCurrentItem(0);}
 
 
-    public void onRescanClick(View v) {
+    public static void onRescanClick(View v) {
         viewPager.setCurrentItem(1);
     }
 
